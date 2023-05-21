@@ -1,0 +1,45 @@
+.passengerForm{
+    width: 70%;
+    margin-top: 2%;
+    margin-left: 15%;
+    /* background-color: rgb(0, 0, 0); */
+}
+.example-form{
+    /* margin-left: 10%; */
+    padding-left: 5%;
+    background-color: rgb(193, 178, 255);
+}
+.title{
+    display: inline-block;
+    height: 5%;
+    /* background-color: black; */
+}
+.title h2{
+    display: inline;
+}
+.title a{
+    margin-top: 1%;
+    display: inline;
+    float:right;
+    margin-right: 2%;
+    /* color: white; */
+    /* background-color: yellowgreen; */
+}
+.title a:hover{
+    color: red;
+}
+h2{
+    /* color: white; */
+    margin-top: 1%;
+    margin-left: 15%;
+    align-self: center;
+    justify-self: center;
+    width: 10%;
+    /* background-color: aqua; */
+}
+.example-full-width{
+    margin-left: 5%;
+}
+.passengersubmit{
+    align-self: center;
+}

@@ -1,0 +1,30 @@
+
+<!-- <button (click)="onclick()">See Flights</button> -->
+<div class="flights" *ngFor="let item of flights">
+    <mat-card>
+        
+        <mat-card-header>
+            <mat-card-subtitle>{{item.flight_Name}} {{item.flight_code}}</mat-card-subtitle>
+       
+        <mat-card-title>{{item.departureAirportName}} ({{item.departureAirportCode}}) - {{item.arriavalAirportName}}  ({{item.arraiavalAirportCode}})</mat-card-title>
+           <h2> {{item.basePrice}}</h2>
+        </mat-card-header>
+        <mat-card-content>
+            {{item.departureDate  | date: 'yyyy-MM-dd'}} : {{item.departureTime | date: 'HH:mm'}}  -  {{item.arrivalDate  | date: 'yyyy-MM-dd'}} : {{item.arrivalTime | date: 'HH:mm'}}
+            <!-- <div class="card" *ngFor="let item of flights"> -->
+                <!-- <h5 class="card-header">{{item.flight_Name}} {{item.flight_code}}</h5>
+                <div class="card-body">
+                  <h5 class="card-title">{{item.departureAirportName}} - {{item.arriavalAirportName}}</h5>
+                  <p class="card-text"> {{item.departureDate  | date: 'yyyy-MM-dd'}} : {{item.departureTime | date: 'HH:mm'}}  -  {{item.arrivalDate  | date: 'yyyy-MM-dd'}} : {{item.arrivalTime | date: 'HH:mm'}} "\n" 
+                    <span class="price">{{item.basePrice}}</span>
+                  </p> -->
+                  <!-- <button class="btn btn-primary">Add Passengers</button> -->
+                <!-- </div> -->
+              <!-- </div> -->
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="onFlightSelected(item.id)" color="primary">Select Flight</button>
+          <!-- <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+</div>

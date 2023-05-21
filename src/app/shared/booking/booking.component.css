@@ -1,0 +1,53 @@
+.bookingcontainer{
+    /* background-color: black; */
+    width: 80%;
+    /* height: 90%; */
+    display: inline-block;
+    margin-top: 3%;
+    /* color: white; */
+    /* background-color: rgb(118, 207, 204); */
+    /* background-color:rgb(10, 126, 130); */
+    border-radius: 20px;
+    /* border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-t-right-radius: 20px; */
+    padding:2% 4%;
+    margin-left: 6%;
+    font-family:  "Helvetica Neue", sans-serif;
+    box-shadow: 0px 0px 3px;
+    
+}
+
+h2{
+    /* color: white; */
+    font-weight: normal;
+}
+.example-form{
+    /* background-color: blue; */
+    width: 96%;
+}
+.example-full-width{
+    margin: 0px 2%;
+}
+
+/* .bookinginputs{
+  width:100%;
+  padding-top: 10px;
+  display: inline-block;
+  
+  
+}
+.bookinginputs input{
+  display:inline;
+  padding:.25% .5%;
+  height: 60px;
+  border-style: none;
+  border-style: solid;
+}
+
+.firstinput{
+  width: 18%;
+  display:inline;
+  margin: 0%;
+  /* height: 40px; */
+ 
