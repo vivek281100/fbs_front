@@ -34,13 +34,19 @@ export class LoginComponent {
             this.toastr.success(item.message + " Loged In")
             sessionStorage.setItem('Token',this.result.data.token);
             sessionStorage.setItem('role',this.result.message);
-            this.router.navigate(['dashboard']);
+            if(this.result.message == "Admin")
+            {
+            this.router.navigate(['dashboard-admin']);
+            }
+            else{
+              this.router.navigate(['dashboard']);
+            }
           } else {
                 this.toastr.error('Please contact Admin', 'InActive User');
           }
         }
          else {
-          this.toastr.error('Invalid credentials');
+          this.toastr.error(item.message);
         };
       });
     } else {

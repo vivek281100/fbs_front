@@ -21,6 +21,9 @@ import { BookingComponent } from './shared/booking/booking.component';
 import { FlightComponent } from './shared/flight/flight.component';
 import { PassengerComponent } from './dashboard/passenger/passenger.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { FooterComponent } from './home/footer/footer.component';
+import { DestinationsComponent } from './home/destinations/destinations.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
 
 
 // const routes: Routes = [
@@ -43,7 +46,10 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
     BookingComponent,
     FlightComponent,
     PassengerComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
+    FooterComponent,
+    DestinationsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

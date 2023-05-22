@@ -23,6 +23,7 @@ export class AuthGuard implements CanActivate {
         let menu = route.url[0].path;
         if (menu == 'dashboard-admin') {
           if (this.service.getrole() == 'Admin') {
+            // this.tostr.success("admin logged in")
             return true;
           } else {
             this.router.navigate(['dashboard']);

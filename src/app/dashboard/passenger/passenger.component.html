@@ -1,8 +1,8 @@
 <div class="passengerlist" *ngIf="passengers.length > 0" >
     <div class="passengercards" *ngFor="let item of passengers">
         <mat-card>
-            <mat-card-title><a  (click)="OnRemovePassenger(item.id)" ><mat-icon>close</mat-icon></a></mat-card-title>
-            <mat-card-header>
+            <mat-card-title style="float: right; background-color: cadetblue;"><a  (click)="OnRemovePassenger(item.id)" ><mat-icon>close</mat-icon></a></mat-card-title>
+            <mat-card-header style="background-color: cadetblue;">
                 <h1>{{item.firstName}} {{item.lastName}}</h1>
             </mat-card-header>
             <mat-card-content>

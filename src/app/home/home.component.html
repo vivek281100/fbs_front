@@ -1,5 +1,6 @@
 
   <!-- Toolbar -->
+  <div class="homecontainer">
   <div class="toolbar" role="banner">
     
     <span><a routerLink="/home">BestWays</a></span>
@@ -13,13 +14,19 @@
       </a>
   </div>
   
-<div style="text-align: center;margin-top: 8%;">
-    <h1>welcome</h1>
-<h2>Lets have a great Time</h2>
-<h3>You r secured with us</h3>
+<div class="title">
+    <h1>BestWays</h1>
+<!-- <h2>Lets have a great Time</h2> -->
+<!-- <h3>You r secured with us</h3> -->
 </div>
 <!-- <app-booking></app-booking> -->
 <div class="container" role="main">
-  <router-outlet></router-outlet>
-  
+  <router-outlet>
+    <h1 style="text-align: center; margin-top: 5%;">Welcome to the future of travel</h1>
+    
+  </router-outlet>
+  <!-- <app-destinations></app-destinations> -->
 </div>
+
+</div>
+<app-footer></app-footer>

@@ -92,6 +92,7 @@ export class PassengerComponent {
       console.log(res)
       if(res.success)
       {debugger
+        this.passengers = res.data
         this.toastr.success(res.message)}
       else{
         this.toastr.warning("something went wrong");

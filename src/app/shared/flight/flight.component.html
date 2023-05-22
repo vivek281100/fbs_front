@@ -7,7 +7,7 @@
             <mat-card-subtitle>{{item.flight_Name}} {{item.flight_code}}</mat-card-subtitle>
        
         <mat-card-title>{{item.departureAirportName}} ({{item.departureAirportCode}}) - {{item.arriavalAirportName}}  ({{item.arraiavalAirportCode}})</mat-card-title>
-           <h2> {{item.basePrice}}</h2>
+           <h2>₹ {{item.basePrice}}</h2>
         </mat-card-header>
         <mat-card-content>
             {{item.departureDate  | date: 'yyyy-MM-dd'}} : {{item.departureTime | date: 'HH:mm'}}  -  {{item.arrivalDate  | date: 'yyyy-MM-dd'}} : {{item.arrivalTime | date: 'HH:mm'}}
