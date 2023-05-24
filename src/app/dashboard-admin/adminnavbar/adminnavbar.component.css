@@ -1,0 +1,19 @@
+.navlinks{
+    display: inline-block;
+    width: 88%;
+    margin-left: 2%;
+    color:white
+}
+.links{
+    display:inline;
+    width: 70%;
+}
+.logbutton{
+    float: right;
+}
+
+@media only screen and (max-width: 680px){
+.links{
+    display: none;
+}
+}

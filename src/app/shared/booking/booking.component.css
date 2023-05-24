@@ -20,7 +20,9 @@
 
 h2{
     /* color: white; */
-    font-weight: normal;
+    font-family: 'Playfair Display', serif;
+    font-weight:600;
+    
 }
 .example-form{
     /* background-color: blue; */

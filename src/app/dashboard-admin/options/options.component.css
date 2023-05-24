@@ -1,0 +1,52 @@
+mat-grid-list{
+    margin-left: 20%;
+    margin-top: 3%;
+    width: 60%;
+    /* height: 200px; */
+    padding-bottom: 0px;
+}
+
+
+mat-grid-tile {
+    background-color: black;
+    color: white;
+    /* max-width: 15%; */
+    row-gap: 20px;
+    /* font-size: xx-large; */
+    /* margin-top: 2%; */
+    /* margin: 2%; */
+    border-radius: 25px;
+    column-gap: 20px;
+    background-color: darkslategrey;
+    display: block;
+    /* box-shadow: 0 0 20px black; */
+
+  }
+  mat-grid-tile a{
+    font-size: x-large;
+  }
+
+
+  .image{
+    width: 60%;
+    height: 60%;
+    float: left;
+    margin-left: 15%;
+    display: block;
+    
+  }
+  .content{
+    width: 100%;
+    height: auto;
+    float: left;
+    display: block;
+  }
+  img{
+    width: 70%;
+  }
+  .users:hover{
+    color: black;
+    box-shadow: 0 0 20px rgb(59, 127, 139);
+    overflow: hidden;
+
+  }

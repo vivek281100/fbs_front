@@ -30,8 +30,8 @@ export class RegisterComponent {
       debugger
       this.service.RegisterUser(this.registerform.value).subscribe(result => {
         
-        this.toastr.success('Please contact admin for enable access.',result.message)
-        this.router.navigate(['login'])
+        this.toastr.success(result.message)
+        this.router.navigate(['../login'])
       });
     } else {
       this.toastr.warning('Please enter valid data.')

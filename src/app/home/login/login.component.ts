@@ -36,7 +36,7 @@ export class LoginComponent {
             sessionStorage.setItem('role',this.result.message);
             if(this.result.message == "Admin")
             {
-            this.router.navigate(['dashboard-admin']);
+            this.router.navigate(['dashboard-admin/options']);
             }
             else{
               this.router.navigate(['dashboard']);

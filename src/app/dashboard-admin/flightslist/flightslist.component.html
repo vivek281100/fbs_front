@@ -1,0 +1,50 @@
+<div class="flightedit optioons">
+
+</div>
+<div class="flightslist">
+   
+    <div class="flights" *ngFor="let item of getPaginatedFlights()">
+        <mat-card class="flight-card">
+          <div class="flight-header">
+            <div class="flight-details">
+              <div class="flight-name">{{ item.flight_Name }} {{ item.flight_code }}</div>
+              <div class="airport-details">{{ item.departureAirportName }} ({{ item.departureAirportCode }}) - {{ item.arriavalAirportName }} ({{ item.arraiavalAirportCode }})</div>
+              <div class="price">₹ {{ item.basePrice }}</div>
+            </div>
+            <div class="flight-actions">
+              <button mat-icon-button color="primary" class="edit-flight-button">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" class="delete-flight-button">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div class="flight-schedule">
+            <div class="schedule-item">
+              <div class="schedule-label">Departure</div>
+              <div class="schedule-date">{{ item.departureDate | date: 'yyyy-MM-dd' }}</div>
+              <div class="schedule-time">{{ item.departureTime | date: 'HH:mm' }}</div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-label">Arrival</div>
+              <div class="schedule-date">{{ item.arrivalDate | date: 'yyyy-MM-dd' }}</div>
+              <div class="schedule-time">{{ item.arrivalTime | date: 'HH:mm' }}</div>
+            </div>
+          </div>
+          <mat-card-actions>
+            <button mat-button color="primary" class="select-flight-button">Select Flight</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      
+      
+        
+    
+    <mat-paginator [length]="flights.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex" (page)="onPageChange($event)"></mat-paginator>
+
+<table>
+  <!-- Display your paginated data in the table -->
+</table>
+
+</div>

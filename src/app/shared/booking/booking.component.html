@@ -2,11 +2,7 @@
    
         
         <h2>Let's Go Stright to Your Flights</h2>
-        <div class="bookinginputs">
-        <!-- <input type="text"  name="From" id="From" placeholder="From" class="firstinput" >
-        <input type="text" name="to" id="to" placeholder="To"  class="secondinput"  >
-        <input type="date" name="travedate" id="traveldate" class="dateinput" > -->
-        <!-- <input type="number" name="passengers" > -->
+        <div class="bookinginputs" style="margin-left: 20%;">
        
         <form class="example-form" [formGroup]="searchflightsform" (ngSubmit)="onSearchFlights()">
             <mat-form-field class="example-full-width">
@@ -19,23 +15,16 @@
               </mat-form-field>
               <mat-form-field class="example-full-width">
                     <mat-label>Choose a date</mat-label>
-                    <input matInput type="date" formControlName="departureDate">
-                    <!-- <mat-hint>DD/MM/YYYY</mat-hint> -->
+                    <input matInput type="date" formControlName="departureDate" >
+                  
                     
               </mat-form-field>
-              <div>
+              <div style="margin-left: 30%;">
                 <button mat-raised-button color="primary"> <mat-icon>search</mat-icon><mat-hint>Search</mat-hint></button>
-                <!-- <a routerLink="/register" mat-raised-button color="accent">New User?</a> -->
+
               </div>
           </form>
 
-
-        <!-- <button class="btn submit" mat-raised-button >Search</button> -->
-        
         </div>
-        <div >
-                
-        </div>
-    <!-- </div> -->
 
 </div>

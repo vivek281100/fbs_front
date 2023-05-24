@@ -10,6 +10,10 @@ import { BookingComponent } from './shared/booking/booking.component';
 import { FlightComponent } from './shared/flight/flight.component';
 import { PassengerComponent } from './dashboard/passenger/passenger.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { OptionsComponent } from './dashboard-admin/options/options.component';
+import { BookinglistComponent } from './dashboard-admin/bookinglist/bookinglist.component';
+import { FlightslistComponent } from './dashboard-admin/flightslist/flightslist.component';
+import { UsersComponent } from './dashboard-admin/users/users.component';
 
 const routes: Routes = [
   {
@@ -43,7 +47,24 @@ const routes: Routes = [
   {
     path:'dashboard-admin',
     component:DashboardAdminComponent,
-    canActivate:[AuthGuard]
+    canActivate:[AuthGuard],
+    children:[
+      {path:'options',
+      component:OptionsComponent
+        },
+        {
+          path:'bookings',
+          component:BookinglistComponent
+        },
+        {
+          path:'flights',
+          component:FlightslistComponent
+        },
+        {
+          path:'users',
+          component:UsersComponent
+        }
+    ]
   },
   {
     path:'passtest',

@@ -6,12 +6,15 @@
       <h1 style="padding-top: 1%;">DashBoard</h1>
       <span class="menu-spacer"></span>
       <div>
+        
         <a mat-button > Bookings<mat-icon>book</mat-icon> </a>
         <a mat-button [routerLink]> Payments <mat-icon>payment</mat-icon></a>
         <a mat-button [routerLink]> FeedBack <mat-icon>star</mat-icon> </a>
         <!-- <a mat-button [routerLink]>  </a> -->
         <!-- <a mat-button [routerLink]> Create Activity </a> -->
-        <a mat-button > Profile<mat-icon>person</mat-icon> </a>
+        <!-- <mat-dialog-actions> -->
+        <a mat-button  (click)="OnProfileClick()"> Profile<mat-icon>person</mat-icon> </a>
+        <!-- </mat-dialog-actions> -->
         <a mat-button class="logbutton" (click)="logout()"> Logout<mat-icon>logout</mat-icon></a>
       </div>
     </mat-toolbar-row>

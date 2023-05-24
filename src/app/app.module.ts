@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { UsernavbarComponent } from './dashboard/usernavbar/usernavbar.component';
 
+
 //routermodule
 import { RouterModule,Routes } from '@angular/router';
 import { BookingComponent } from './shared/booking/booking.component';
@@ -24,7 +25,12 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
 import { FooterComponent } from './home/footer/footer.component';
 import { DestinationsComponent } from './home/destinations/destinations.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
-
+import { AdminnavbarComponent } from './dashboard-admin/adminnavbar/adminnavbar.component';
+import { OptionsComponent } from './dashboard-admin/options/options.component';
+import { BookinglistComponent } from './dashboard-admin/bookinglist/bookinglist.component';
+import { FlightslistComponent } from './dashboard-admin/flightslist/flightslist.component';
+import { UsersComponent } from './dashboard-admin/users/users.component';
+import { DatePipe } from '@angular/common';
 
 // const routes: Routes = [
 //   { path: 'login', component: LoginComponent },
@@ -49,7 +55,12 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     DashboardAdminComponent,
     FooterComponent,
     DestinationsComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminnavbarComponent,
+    OptionsComponent,
+    BookinglistComponent,
+    FlightslistComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +70,10 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    RouterModule
+    RouterModule,
+    DatePipe
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

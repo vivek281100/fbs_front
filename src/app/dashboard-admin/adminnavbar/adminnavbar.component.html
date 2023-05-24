@@ -1,0 +1,31 @@
+<mat-toolbar style="background-color: darkslategrey;">
+    <mat-toolbar-row>
+      <!-- <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon style="color: white;">menu</mat-icon>
+      </button> -->
+      <button mat-button [matMenuTriggerFor]="menu" ><mat-icon style="size: 10px;color: white;">menu</mat-icon></button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="bookings"> Bookings<mat-icon>book</mat-icon> </button>
+        <button mat-menu-item routerLink = "flights"> Flights <mat-icon>flight</mat-icon></button>
+        <button [routerLink] mat-menu-item> Payments <mat-icon>money</mat-icon> </button>
+        <button  mat-menu-item routerLink="users"> Users<mat-icon>person</mat-icon> </button>
+    </mat-menu>
+
+      <a routerLink="options" mat-button><h1 style="padding-top: 10px; color:white;" >Admin</h1></a>
+      <span class="menu-spacer"></span>
+      <div class="navlinks" >
+        <div class="links">
+        <a mat-button routerLink="bookings" > Bookings<mat-icon>book</mat-icon> </a>
+        <a mat-button routerLink = "flights"> Flights <mat-icon>flight</mat-icon></a>
+        <a mat-button [routerLink]> Payments <mat-icon>money</mat-icon> </a>
+        <a mat-button routerLink="users" > Users<mat-icon>person</mat-icon> </a>
+        </div>
+        
+        <a mat-button class="logbutton" (click)="logout()"> Logout<mat-icon>logout</mat-icon></a>
+
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  
+  

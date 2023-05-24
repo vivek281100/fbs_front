@@ -1,11 +1,11 @@
 .flight-card {
     width: 70%;
     height: 10%;
-    margin-bottom: 20px;
-    border-radius: 8px;
     margin-left: 15%;
-    background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: darkslategrey;
+    box-shadow: 0px 0px 10px rgba(8, 8, 8, 0.1);
   }
   
   .flight-header {
@@ -13,12 +13,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px;
-    background-color: #f5f5f5;
   }
   
   .flight-details {
     font-weight: bold;
-    color: #333;
+    color: #fff;
   }
   
   .flight-name {
@@ -28,13 +27,27 @@
   .airport-details {
     font-size: 14px;
     margin-top: 4px;
-    color: #777;
+    color: #ccc;
   }
   
   .price {
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: #fff;
+  }
+  
+  .flight-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .edit-flight-button,
+  .delete-flight-button {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    color: #fff;
   }
   
   .flight-schedule {
@@ -52,7 +65,7 @@
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 4px;
-    color: #333;
+    color: darkslategrey;
   }
   
   .schedule-date {
@@ -62,12 +75,12 @@
   
   .schedule-time {
     font-size: 16px;
-    color: #333;
+    color: darkslategrey;
   }
   
   .select-flight-button {
     font-size: 14px;
-    background-color: #ff5722;
+    background-color: darkslategrey;
     color: #fff;
     border-radius: 4px;
     padding: 8px 16px;
