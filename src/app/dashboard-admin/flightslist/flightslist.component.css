@@ -1,3 +1,10 @@
+.flightslist{
+  margin-top: 3%;
+}
+
+
+
+
 .flight-card {
     width: 70%;
     height: 10%;
@@ -10,6 +17,7 @@
   
   .flight-header {
     display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
@@ -48,6 +56,10 @@
     height: 40px;
     margin-left: 8px;
     color: #fff;
+  }
+
+  .delete-flight-button:hover{
+    color: red;
   }
   
   .flight-schedule {

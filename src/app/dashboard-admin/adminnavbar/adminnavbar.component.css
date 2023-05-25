@@ -8,6 +8,9 @@
     display:inline;
     width: 70%;
 }
+a:hover{
+    color: darkorange;
+}
 .logbutton{
     float: right;
 }

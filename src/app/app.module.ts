@@ -31,6 +31,8 @@ import { BookinglistComponent } from './dashboard-admin/bookinglist/bookinglist.
 import { FlightslistComponent } from './dashboard-admin/flightslist/flightslist.component';
 import { UsersComponent } from './dashboard-admin/users/users.component';
 import { DatePipe } from '@angular/common';
+import { FlightAddComponent } from './dashboard-admin/flightslist/flight-add/flight-add.component';
+import { FlightupdateComponent } from './dashboard-admin/flightslist/flightupdate/flightupdate.component';
 
 // const routes: Routes = [
 //   { path: 'login', component: LoginComponent },
@@ -60,7 +62,9 @@ import { DatePipe } from '@angular/common';
     OptionsComponent,
     BookinglistComponent,
     FlightslistComponent,
-    UsersComponent
+    UsersComponent,
+    FlightAddComponent,
+    FlightupdateComponent
   ],
   imports: [
     BrowserModule,
