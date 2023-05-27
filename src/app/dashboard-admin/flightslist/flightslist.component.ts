@@ -29,7 +29,7 @@ export class FlightslistComponent {
 
 
 //flight edit 
-openEdit(){
+openEdit(id:number){
 
 }
 
@@ -38,9 +38,19 @@ openEdit(){
 
 
 //flight delete
-deleteFlight()
+deleteFlight(id:number)
 {
-
+  debugger
+this.adminservice.deleteflight(id).subscribe((res) => {
+debugger
+  if(res.success)
+  {
+    this.toastr.success(res.message);
+  }
+  else{
+    this.toastr.error(res.message);
+  }
+})
 }
 
 

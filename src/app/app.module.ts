@@ -34,6 +34,7 @@ import { DatePipe } from '@angular/common';
 import { FlightAddComponent } from './dashboard-admin/flightslist/flight-add/flight-add.component';
 import { FlightupdateComponent } from './dashboard-admin/flightslist/flightupdate/flightupdate.component';
 
+
 // const routes: Routes = [
 //   { path: 'login', component: LoginComponent },
 //   { path: 'home/register', component: RegisterComponent },

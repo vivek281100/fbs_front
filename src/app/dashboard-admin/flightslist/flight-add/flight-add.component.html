@@ -17,69 +17,70 @@
     // "totalNoofseats": 0,
     // "isrunning": true -->
 
-    <form class="flightsform" [formGroup]="AddFlightForm" (ngSubmit)="onFlightAdd()">
-        <mat-form-field>
-            <mat-label>Flight Name</mat-label>
-            <input matInput text="text" class="flightname" formControlName="flight_Name" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Flight Code</mat-label>
-            <input matInput text="text" class="flight_code" formControlName="flight_code" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Departure Airport Name</mat-label>
-            <input matInput text="text" class="departureAirportName" formControlName="departureAirportName" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Departure Airport code</mat-label>
-            <input matInput text="text" class="departureAirportCode" formControlName="departureAirportCode" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Arrival Airport Name</mat-label>
-            <input matInput text="text" class="arriavalAirportName" formControlName="arriavalAirportName" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Arrival Airport Code</mat-label>
-            <input matInput text="text" class="arraiavalAirportCode" formControlName="arraiavalAirportCode" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Departure Date</mat-label>
-            <input matInput text="date" class="departureDate" formControlName="departureDate" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Arrival Date</mat-label>
-            <input matInput text="date" class="arrivalDate" formControlName="arrivalDate" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Departure City</mat-label>
-            <input matInput text="text" class="departureCity" formControlName="departureCity" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Arrival City</mat-label>
-            <input matInput text="text" class="arrivalCity" formControlName="arrivalCity" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Departure Time</mat-label>
-            <input matInput type="datetime" class="departureTime" formControlName="departureTime" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Arrival Time</mat-label>
-            <input matInput type="datetime" class="arrivalTime" formControlName="arrivalTime" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Base Price</mat-label>
-            <input matInput type="number" class="basePrice" formControlName="basePrice" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>No Of Seats</mat-label>
-            <input matInput type="number" class="totalNoofseats" formControlName="totalNoofseats" >
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Availble Currently</mat-label>
-            <input matInput type="text" class="isrunning" formControlName="isrunning" >
-        </mat-form-field>
-        <div>
-            <button mat-button type="submit">Add<mat-icon>add</mat-icon></button>
-        </div>
-    </form>
+   
+        <div class="container mt-5">
+            <form class="flightsform" [formGroup]="flightForm" (ngSubmit)="onFlightAdd()">
+              <div class="mb-3">
+                <label for="flightName" class="form-label">Flight Name</label>
+                <input type="text" class="form-control" id="flightName" formControlName="Flight_Name" required>
+              </div>
+              <div class="mb-3">
+                <label for="flightCode" class="form-label">Flight Code</label>
+                <input type="text" class="form-control" id="flightCode" formControlName="Flight_code" required>
+              </div>
+              <div class="mb-3">
+                <label for="departureAirportName" class="form-label">Departure Airport Name</label>
+                <input type="text" class="form-control" id="departureAirportName" formControlName="DepartureAirportName" required>
+              </div>
+              <div class="mb-3">
+                <label for="departureAirportCode" class="form-label">Departure Airport Code</label>
+                <input type="text" class="form-control" id="departureAirportCode" formControlName="DepartureAirportCode" required>
+              </div>
+              <div class="mb-3">
+                <label for="arrivalAirportName" class="form-label">Arrival Airport Name</label>
+                <input type="text" class="form-control" id="arrivalAirportName" formControlName="ArriavalAirportName" required>
+              </div>
+              <div class="mb-3">
+                <label for="arrivalAirportCode" class="form-label">Arrival Airport Code</label>
+                <input type="text" class="form-control" id="arrivalAirportCode" formControlName="ArraiavalAirportCode" required>
+              </div>
+              <div class="mb-3">
+                <label for="departureDate" class="form-label">Departure Date</label>
+                <input type="date" class="form-control" id="departureDate" formControlName="DepartureDate" required>
+              </div>
+              <div class="mb-3">
+                <label for="arrivalDate" class="form-label">Arrival Date</label>
+                <input type="date" class="form-control" id="arrivalDate" formControlName="ArrivalDate" required>
+              </div>
+              <div class="mb-3">
+                <label for="departureCity" class="form-label">Departure City</label>
+                <input type="text" class="form-control" id="departureCity" formControlName="DepartureCity" required>
+              </div>
+              <div class="mb-3">
+                <label for="arrivalCity" class="form-label">Arrival City</label>
+                <input type="text" class="form-control" id="arrivalCity" formControlName="ArrivalCity" required>
+              </div>
+              <div class="mb-3">
+                <label for="departureTime" class="form-label">Departure Time</label>
+                <input type="time" class="form-control" id="departureTime" formControlName="DepartureTime" required>
+              </div>
+              <div class="mb-3">
+                <label for="arrivalTime" class="form-label">Arrival Time</label>
+                <input type="time" class="form-control" id="arrivalTime" formControlName="ArrivalTime" required>
+              </div>
+              <div class="mb-3">
+                <label for="basePrice" class="form-label">Base Price</label>
+                <input type="number" class="form-control" id="basePrice" formControlName="BasePrice" required>
+              </div>
+              <div class="mb-3">
+                <label for="totalNoOfSeats" class="form-label">Total Number of Seats</label>
+                <input type="number" class="form-control" id="totalNoOfSeats" formControlName="TotalNoofseats" required>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="isRunning" formControlName="Isrunning">
+                <label class="form-check-label" for="isRunning">Is Running</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
 </div>

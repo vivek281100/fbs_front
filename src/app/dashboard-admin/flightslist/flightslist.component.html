@@ -14,10 +14,10 @@
               <div class="price"> {{ item.basePrice | currency:'₹'}}</div>
             </div>
             <div class="flight-actions">
-              <button mat-icon-button color="primary" (click)="openEdit()"  class="edit-flight-button">
+              <button mat-icon-button color="primary" (click)="openEdit(item.id)"  class="edit-flight-button">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button   (click)="deleteFlight()"  class="delete-flight-button">
+              <button mat-icon-button   (click)="deleteFlight(item.id)"  class="delete-flight-button">
                 <mat-icon>delete</mat-icon>
               </button>
             </div>

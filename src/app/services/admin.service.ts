@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -19,7 +19,19 @@ export class AdminService {
     return this.http.post('https://localhost:7102/api/Flight/AddFlight',responce,{headers:headobj})
   }
 
+//delete flight
+deleteflight(id:number):Observable<any>
+{
+  let token = sessionStorage.getItem("Token");
+    let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+  const flightid = new HttpParams().set('id', id);
+  debugger
+  return this.http.delete('https://localhost:7102/api/Flight/deleteFlight' ,{headers:headobj , params:flightid})
+}
 
+
+
+//edit flight
 
 
   //get flights 
