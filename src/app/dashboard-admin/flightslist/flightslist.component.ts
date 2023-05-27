@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Flight } from 'src/app/Models/Flight';
 import { AdminService } from 'src/app/services/admin.service';
 import { FlightAddComponent } from './flight-add/flight-add.component';
+import { FlightupdateComponent } from './flightupdate/flightupdate.component';
 
 @Component({
   selector: 'app-flightslist',
@@ -14,6 +15,8 @@ import { FlightAddComponent } from './flight-add/flight-add.component';
 export class FlightslistComponent {
 
   flights:Flight[] = [];
+  
+  updateflight!:any;
 
   pageSizeOptions: number[] = [4, 8, 12];
   pageSize: number = 4; 
@@ -26,10 +29,33 @@ export class FlightslistComponent {
       this.toastr.show(res.message);
     })
   }
-
+ 
 
 //flight edit 
 openEdit(id:number){
+  this.adminservice.getflightbyid(id).subscribe((res) => {
+    debugger
+    if(res.success == false)
+    {
+      this.toastr.warning("Unable to find flight, try after some time");
+    }
+    this.adminservice.setFlightvalue(res.data);
+    // console.log(this.updateflight)
+    const updateref = this.dialog.open(FlightupdateComponent,{
+      width:"80%",
+      height:"70% "
+    })
+
+    
+  })
+// debugger
+//   const updateref = this.dialog.open(FlightupdateComponent,{
+    
+//     data:this.updateflight,
+//     width:"80%",
+//     height:"70% "
+
+//   })
 
 }
 
