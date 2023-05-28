@@ -1,0 +1,38 @@
+.userslist{
+    margin-left: 15%;
+    margin-top: 5%;
+    width: 70%;
+}
+thead{
+    background-color: darkslategrey;
+    color:white;
+}
+.addbutton{
+    background-color: orange;
+    margin-top: 3%;
+    width: 100%;
+    margin-bottom: 5%;;
+}
+.formbutton{
+    margin-left: 40%;
+    align-self: center;
+
+}
+
+.useradd{
+    margin-top: 5%;
+    padding-left: 10%;
+}
+@media only screen and (max-width: 680px){
+    .userslist{
+      margin-left: 4%;
+      width: 90%;
+    }
+    .useradd{
+        padding-left: 30%;
+    }
+    .formbutton{
+        margin-left: 25%;
+        align-self: center;
+    }
+    }

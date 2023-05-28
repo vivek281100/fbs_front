@@ -53,7 +53,7 @@ const routes: Routes = [
       component:OptionsComponent
         },
         {
-          path:'bookings',
+          path:'bookinglist/:id',
           component:BookinglistComponent
         },
         {

@@ -26,9 +26,9 @@ flights:Flight[] = [];
   //   this.userservice.getFlights().subscribe((res) => {this.flights = res});
   //   console.log("flights called");
   // }
-  flightObj:any= {
-    flightId:0
-  }
+  // flightObj:any= {
+  //   flightId:0
+  // }
 
   onFlightSelected(id:number)
     {

@@ -14,30 +14,17 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthGuard implements CanActivate {
   constructor(private service: AuthserviceService, private router: Router,private tostr:ToastrService) { }
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.service.isloggedin()) {
-      if (route.url.length > 0) {
-        let menu = route.url[0].path;
-        if (menu == 'dashboard-admin') {
-          if (this.service.getrole() == 'Admin') {
-            // this.tostr.success("admin logged in")
-            return true;
-          } else {
-            this.router.navigate(['dashboard']);
-              this.tostr.warning('You dont have access.')
-            return false;
-          }
-        }else{
-          return true;
-        }
-      } else {
-        return true;
+      const menu = state.url.split('/')[1]; // Extract the first segment of the URL
+      if (menu === 'dashboard-admin' && this.service.getrole() !== 'Admin') {
+        this.router.navigate(['dashboard']);
+        this.tostr.warning('You dont have access.');
+        return false;
       }
-    }
-    else {
+      return true;
+    } else {
       this.router.navigate(['home/login']);
       return false;
     }

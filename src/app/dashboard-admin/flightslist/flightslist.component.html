@@ -35,7 +35,7 @@
             </div>
           </div>
           <mat-card-actions>
-            <button mat-button color="primary" class="select-flight-button">See Bookings</button>
+            <button mat-button color="primary" class="select-flight-button" (click)="flightbookings(item.id)">See Bookings</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -45,8 +45,5 @@
     
     <mat-paginator [length]="flights.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex" (page)="onPageChange($event)"></mat-paginator>
 
-<table>
-  <!-- Display your paginated data in the table -->
-</table>
 
 </div>

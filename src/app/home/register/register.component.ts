@@ -27,7 +27,7 @@ export class RegisterComponent {
   });
   proceedregister() {
     if (this.registerform.valid) {
-      debugger
+      // debugger
       this.service.RegisterUser(this.registerform.value).subscribe(result => {
         
         this.toastr.success(result.message)

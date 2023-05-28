@@ -14,12 +14,12 @@ export class AuthserviceService {
   apiurl='http://localhost:7102/api/User';
 
   RegisterUser(inputdata:any):Observable<any>{
-    debugger
+     debugger
     return this.http.post("https://localhost:7102/api/User/registeruser",inputdata)
   }
 
   Login(inputdata:any):Observable<any>{
-    debugger
+    // debugger
     return this.http.post("https://localhost:7102/api/User/UserLogin",inputdata);
   }
   // GetUserbyCode(id:any){
@@ -28,22 +28,10 @@ export class AuthserviceService {
   // Getall(){
   //   return this.http.get(this.apiurl);
   // }
-  updateuser(inputdata:any){
-    return this.http.put(this.apiurl+'/UpdateUsers',inputdata);
-  }
-  getuserrole(){
-    return this.http.get('http://localhost:3000/role');
-  }
   isloggedin(){
     return sessionStorage.getItem('Token')!=null;
   }
   getrole(){
     return sessionStorage.getItem('role')!=null?sessionStorage.getItem('role')?.toString():'';
-  }
-  GetAllCustomer(){
-    return this.http.get('http://localhost:3000/customer');
-  }
-  Getaccessbyrole(role:any,menu:any){
-    return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)
   }
 }

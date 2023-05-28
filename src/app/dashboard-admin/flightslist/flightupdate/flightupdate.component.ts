@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component,Input } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Flight } from 'src/app/Models/Flight';
@@ -11,7 +11,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './flightupdate.component.html',
   styleUrls: ['./flightupdate.component.css']
 })
-export class FlightupdateComponent {
+export class FlightupdateComponent implements OnInit{
 
    updateflightdate : any;
 
@@ -27,14 +27,27 @@ export class FlightupdateComponent {
         }
       )
       console.log(this.updateflightdate);   
-    this.createForm();
     // debugger
     // if (this.updateflightdate) {
     //   this.updateflightForm.patchValue(this.updateflightdate);
     // }
   }
 
+  ngOnInit()
+  {
+    this.createForm();
+  }
  
+  formateddate(value:any)
+  {
+    console.log(value);
+    console.log(this.datePipe.transform(value,"dd-mm-yyyy"));
+    return  this.datePipe.transform(value, 'dd-mm-yyyy');
+  }
+  formatedtime(value:any)
+  {
+    return this.datePipe.transform(value, "HH:mm")
+  }
 
 
 flights:Flight[] = [];
@@ -48,12 +61,12 @@ flights:Flight[] = [];
       DepartureAirportCode: [this.updateflightdate.departureAirportCode, Validators.required],
       ArriavalAirportName: [this.updateflightdate.arriavalAirportName, Validators.required],
       ArraiavalAirportCode: [this.updateflightdate.arraiavalAirportCode, Validators.required],
-      DepartureDate: [this.updateflightdate.departureDate, Validators.required],
-      ArrivalDate: [this.updateflightdate.arrivalDate, Validators.required],
+      DepartureDate: [this.formateddate(this.updateflightdate.departureDate) , Validators.required],
+      ArrivalDate: [this.formateddate(this.updateflightdate.arrivalDate), Validators.required],
       DepartureCity: [this.updateflightdate.departureCity, Validators.required],
       ArrivalCity: [this.updateflightdate.arrivalCity, Validators.required],
-      DepartureTime: [this.updateflightdate.departureTime, Validators.required],
-      ArrivalTime: [this.updateflightdate.arrivalTime, Validators.required],
+      DepartureTime: [this.formatedtime(this.updateflightdate.departureTime), Validators.required],
+      ArrivalTime: [this.formatedtime(this.updateflightdate.arrivalTime), Validators.required],
       BasePrice: [this.updateflightdate.basePrice, Validators.required],
       TotalNoofseats: [this.updateflightdate.totalNoofseats, Validators.required],
       Isrunning: [this.updateflightdate.isrunning, Validators.required]
@@ -76,13 +89,13 @@ flights:Flight[] = [];
     console.log(this.updateflightForm.value)
    
     //
-    const departureTimeParts = this.updateflightForm.value.DepartureTime.split(':');
+    const editdepartureTime = this.updateflightForm.value.DepartureTime.split(':');
     const departureTime = new Date();
-    departureTime.setHours(+departureTimeParts[0], +departureTimeParts[1]);
+    departureTime.setHours(+editdepartureTime[0], +editdepartureTime[1]);
   
-    const arrivalTimeParts = this.updateflightForm.value.ArrivalTime.split(':');
-    const arrivalTime = new Date();
-    arrivalTime.setHours(+arrivalTimeParts[0], +arrivalTimeParts[1]);
+    const editarrivalTime = this.updateflightForm.value.ArrivalTime.split(':');
+    const arrivalTime = new Date()
+    arrivalTime.setHours(editarrivalTime[0], editarrivalTime[1]);
   
     const flightData = {
       Id: this.updateflightForm.value.Id,
@@ -97,6 +110,8 @@ flights:Flight[] = [];
       DepartureCity: this.updateflightForm.value.DepartureCity,
       ArrivalCity: this.updateflightForm.value.ArrivalCity,
       DepartureTime: departureTime.toISOString(),
+      // DepartureTime: this.updateflightForm.value.departureTime , 
+      // ArrivalTime: this.updateflightForm.value.arrivalTime, 
       ArrivalTime: arrivalTime.toISOString(),
       BasePrice: this.updateflightForm.value.BasePrice,
       TotalNoofseats: this.updateflightForm.value.TotalNoofseats,
@@ -107,7 +122,7 @@ flights:Flight[] = [];
       if(res.success)
       {
         this.toastr.success(res.message)
-        this.dialofref.close();
+        // this.dialofref.close();
       }
       else{
         this.toastr.warning(res.message)

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { getUser } from '../Models/GetUser';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AdminService {
   constructor(private http:HttpClient) { }
 
 
-  //add flights
+//#region add flight
   AddFlight(responce:any):Observable<any>
   {
     let token = sessionStorage.getItem("Token");
@@ -19,22 +20,11 @@ export class AdminService {
     return this.http.post('https://localhost:7102/api/Flight/AddFlight',responce,{headers:headobj})
   }
 
-    //#region edit flight
-
-    updateflight(responce:any):Observable<any>
-    {
-      let token = sessionStorage.getItem("Token");
-      let headobj = new HttpHeaders().set("Authorization","bearer "+token);
-       debugger
-       return this.http.put('https://localhost:7102/api/Flight/UpdateFlights',responce,{headers:headobj})
-    }
-    //#endregion
+  //#endregion
 
 
+//#region delete flight
 
-
-
-//delete flight
 deleteflight(id:number):Observable<any>
 {
   let token = sessionStorage.getItem("Token");
@@ -44,10 +34,19 @@ deleteflight(id:number):Observable<any>
   return this.http.delete('https://localhost:7102/api/Flight/deleteFlight' ,{headers:headobj , params:flightid})
 }
 
+//#endregion
 
 
-//edit flight
 
+//#region edit flight
+
+updateflight(responce:any):Observable<any>
+    {
+      let token = sessionStorage.getItem("Token");
+      let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+       debugger
+       return this.http.put('https://localhost:7102/api/Flight/UpdateFlights',responce,{headers:headobj})
+    }
 
 getflightbyid(id:number):Observable<any>{
   let token = sessionStorage.getItem("Token");
@@ -69,7 +68,12 @@ private flightbyidvalue:BehaviorSubject<any> = new BehaviorSubject<any>(null);
     return this.flightbyidvalue.asObservable();
   }
 
-  //get flights 
+  //#endregion
+  
+ 
+//#region get flights
+
+
   getFlights():Observable<any>{
     let token = sessionStorage.getItem("Token");
     let headobj = new HttpHeaders().set("Authorization","bearer "+token);
@@ -77,17 +81,56 @@ private flightbyidvalue:BehaviorSubject<any> = new BehaviorSubject<any>(null);
     return this.http.get("https://localhost:7102/api/Flight/getFlights",{headers:headobj})
   }
 
-  private fligts:BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  // private flights:BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  setAllFlights(data:any)
+  // setAllFlights(data:any)
+  // {
+  //   this.flights.next(data);
+  // }
+
+  // getallflights():Observable<any>
+  // {
+  //   // debugger
+  //   return this.flights.asObservable();
+  // }
+  
+//#endregion
+
+
+///user crud by admin///---------------------------------------------------------------------------
+
+//#region get users
+
+  getusers():Observable<any>
   {
-    this.flightbyidvalue.next(data);
+    let token = sessionStorage.getItem("Token");
+    let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+    debugger
+    return this.http.get("https://localhost:7102/api/Admin/GetUsers",{headers: headobj});
   }
+//#endregion
 
-  getallflights():Observable<any>
-  {
-    // debugger
-    return this.flightbyidvalue.asObservable();
-  }
 
+
+//#region update user
+
+updateuser(responce:any):Observable<any>
+{
+  let token = sessionStorage.getItem("Token");
+  let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+
+  return this.http.post("https://localhost:7102/api/Admin/updateUser",responce,{headers:headobj});
+}
+//#endregion
+
+//#region delete User
+deleteuser(id:number):Observable<any>
+{
+  let token = sessionStorage.getItem("Token");
+  let headObj = new HttpHeaders().set("Authorization","bearer "+ token);
+  let userId = new HttpParams().set("id",id);
+
+  return this.http.delete("https://localhost:7102/api/Admin/deleteUser",{headers:headObj, params:userId});
+}
+//#endregion
 }

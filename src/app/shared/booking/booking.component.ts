@@ -33,36 +33,39 @@ export class BookingComponent {
     // debugger
     if(this.searchflightsform.valid)
     {
-      console.log(this.searchflightsform)
-      console.log(this.searchflightsform.value.departureDate)
+      // console.log(this.searchflightsform)
+      // console.log(this.searchflightsform.value.departureDate)
       this.userservice.onBooking(this.searchflightsform.value).subscribe((res) => {
         this.userservice.setFlights(res.data);
-      console.log('responce: -'+ res)
+      // console.log('responce: -'+ res)
       if(res.success)
       { 
         //  debugger
-        console.log('res data : '+ res.data);
+        // console.log('res data : '+ res.data);
         if(sessionStorage.getItem('Token') != null )
         {
+          this.toastr.toastrConfig.closeButton = true;
           this.toastr.success(res.message);
           this.route.navigate(['dashboard/flights']);
           
         }
         else{
+          this.toastr.toastrConfig.closeButton = true;
           this.toastr.success(res.message + "✈️");
           this.route.navigate(['home/flights']);
         }
       }
       else{
         // debugger
-        console.log(res.data)
+        this.toastr.toastrConfig.closeButton = true;
         this.toastr.warning(res.message + "try again");
         // this.route.navigate(['home/flights']);
       }
     })
     }
     else{
-      console.log("failed");
+      this.toastr.toastrConfig.closeButton = true;
+      this.toastr.warning("please enter the details");
     }
 
   }

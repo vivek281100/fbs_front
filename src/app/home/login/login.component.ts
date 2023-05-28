@@ -24,7 +24,7 @@ export class LoginComponent {
 
   proceedlogin() {
     if (this.loginform.valid) {
-      debugger
+      // debugger
       this.service.Login(this.loginform.value).subscribe(item => {
         this.result = item
         console.log(this.result)
