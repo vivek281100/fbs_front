@@ -1,12 +1,12 @@
 
-<mat-grid-list cols="3" style="padding-bottom: 0 ;" rowHeight="1:1">
-    <mat-grid-tile class="users">
-        <a mat-button routerLink="../users" > Users<mat-icon>person</mat-icon> </a>
-        </mat-grid-tile>
-    <mat-grid-tile colspan="2" class="users"> <a mat-button routerLink = "../flights"> Flights <mat-icon>flight</mat-icon></a></mat-grid-tile>
-    <mat-grid-tile class="users">Payments</mat-grid-tile>
-    <mat-grid-tile class="users" ><a mat-button routerLink="../bookings" > Bookings<mat-icon>book</mat-icon> </a></mat-grid-tile>
+<mat-grid-list cols="2" style="padding-bottom: 0 ;" rowHeight="1:0.5">
+    <mat-grid-tile colspan="2" class="users" routerLink = "../flights" > <a mat-button style="color:white;"> Flights <mat-icon>flight</mat-icon></a></mat-grid-tile>
     <mat-grid-tile class="users">FeedBacks</mat-grid-tile>
-    <!-- <mat-grid-tile>Profile</mat-grid-tile> -->
+    <mat-grid-tile class="users">Payments</mat-grid-tile>
+    <mat-grid-tile colspan="2" class="users" routerLink="../users">
+        <a mat-button  style="color:white;" > Users<mat-icon>person</mat-icon> </a>
+        </mat-grid-tile>
+        <!-- <mat-grid-tile class="users" ><a mat-button routerLink="../bookings" > Bookings<mat-icon>book</mat-icon> </a></mat-grid-tile> -->
+        <!-- <mat-grid-tile>Profile</mat-grid-tile> -->
   </mat-grid-list>
   

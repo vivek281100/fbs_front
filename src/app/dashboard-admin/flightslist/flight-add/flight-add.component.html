@@ -18,7 +18,8 @@
     // "isrunning": true -->
 
    
-        <div class="container mt-5">
+        <div class="container">
+          <div class="close" mat-dialog-close style="color: red;float: right;"><mat-icon>close</mat-icon></div>
             <form class="flightsform" [formGroup]="flightForm" (ngSubmit)="onFlightAdd()">
               <div class="mb-3">
                 <label for="flightName" class="form-label">Flight Name</label>

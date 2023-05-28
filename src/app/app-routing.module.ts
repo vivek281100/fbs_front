@@ -14,6 +14,7 @@ import { OptionsComponent } from './dashboard-admin/options/options.component';
 import { BookinglistComponent } from './dashboard-admin/bookinglist/bookinglist.component';
 import { FlightslistComponent } from './dashboard-admin/flightslist/flightslist.component';
 import { UsersComponent } from './dashboard-admin/users/users.component';
+import { PaymentsComponent } from './dashboard/payments/payments.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,8 @@ const routes: Routes = [
       //   pathMatch:'full'
       // },
       { path: 'flights', component: FlightComponent },
-      {path:'passenger',component:PassengerComponent}
+      {path:'passenger',component:PassengerComponent},
+      {path:'payments',component:PaymentsComponent}
       // { path: 'booking', component: BookingComponent }
     ],
     canActivate:[AuthGuard]

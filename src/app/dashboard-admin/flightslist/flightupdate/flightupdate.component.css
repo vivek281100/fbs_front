@@ -1,0 +1,14 @@
+.container{
+    position: absolute;
+    padding: 0px;
+    margin-top: 10px;
+    /* background-color: aqua; */
+    /* top:-5px; */
+}
+
+.flightsform{
+    width: 80%;
+    margin-left:10%;
+    /* padding-left: 5%; */
+    /* background-color: rgb(166, 166, 166); */
+}

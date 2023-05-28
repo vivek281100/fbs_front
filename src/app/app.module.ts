@@ -33,6 +33,7 @@ import { UsersComponent } from './dashboard-admin/users/users.component';
 import { DatePipe } from '@angular/common';
 import { FlightAddComponent } from './dashboard-admin/flightslist/flight-add/flight-add.component';
 import { FlightupdateComponent } from './dashboard-admin/flightslist/flightupdate/flightupdate.component';
+import { PaymentsComponent } from './dashboard/payments/payments.component';
 
 
 // const routes: Routes = [
@@ -65,7 +66,8 @@ import { FlightupdateComponent } from './dashboard-admin/flightslist/flightupdat
     FlightslistComponent,
     UsersComponent,
     FlightAddComponent,
-    FlightupdateComponent
+    FlightupdateComponent,
+    PaymentsComponent
   ],
   imports: [
     BrowserModule,

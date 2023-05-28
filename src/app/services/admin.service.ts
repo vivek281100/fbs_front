@@ -111,7 +111,6 @@ private flightbyidvalue:BehaviorSubject<any> = new BehaviorSubject<any>(null);
 //#endregion
 
 
-
 //#region update user
 
 updateuser(responce:any):Observable<any>
@@ -133,4 +132,32 @@ deleteuser(id:number):Observable<any>
   return this.http.delete("https://localhost:7102/api/Admin/deleteUser",{headers:headObj, params:userId});
 }
 //#endregion
+
+
+/////bookinglist/////-------------------------------------------------------------------------------
+
+//#region get bookings by flight id
+
+getbookindbyflightId(id:number):Observable<any>
+{
+  let token = sessionStorage.getItem("Token");
+  let headObj = new HttpHeaders().set("Authorization", "bearer "+token);
+  let flightid = new HttpParams().set("id",id);
+
+  return this.http.get("https://localhost:7102/api/Booking/getbookingsbyflightId",{headers:headObj,params:flightid});
+}
+
+//#endregion
+
+//#region get passengers by booking id
+getpassengersbybookingid(id:number):Observable<any>
+{
+  let token = sessionStorage.getItem('Token');
+  let headObj = new HttpHeaders().set("Authorization","bearer "+token);
+  let bookingid = new HttpParams().set('id',id);
+
+  return this.http.get('https://localhost:7102/api/Passenger/GetPassengersByBookingid',{headers:headObj,params:bookingid})
+}
+//#endregion
+
 }

@@ -113,6 +113,6 @@ AddFlight(){
   //sending flight id to bookinglist component
   flightbookings(id:number)
   {
-    this.route.navigate(['bookinglist',id]);
+    this.route.navigate(['/dashboard-admin/bookinglist',id]);
   }
 }
