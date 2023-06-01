@@ -19,7 +19,7 @@ export class UserService {
     let headobj = new HttpHeaders().set("Authorization","bearer "+token);
     return this.http.post('https://localhost:7102/api/Flight/getflightsbyfromandto',responce, {headers: headobj});
   }
-  //#endregion
+  
 
   //flights stored here after search.
   private flights:BehaviorSubject<any> = new BehaviorSubject<any>(null);
@@ -87,4 +87,30 @@ export class UserService {
       }
     //#endregion
 
+  
+  //#region get user details
+
+  getuserinfo():Observable<any>{
+    let token = sessionStorage.getItem("Token");
+      let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+        
+        // debugger
+      return this.http.get('https://localhost:7102/api/User/getUser',{headers: headobj}); 
   }
+  //#endregion
+ 
+  //#region update user
+
+  updateuser(responce:any):Observable<any>
+  {
+    debugger
+    let token = sessionStorage.getItem("Token");
+    let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+      
+      // debugger
+    return this.http.put('https://localhost:7102/api/User/Updateusers',responce,{headers: headobj}); 
+  }
+  //#endregion
+
+
+}

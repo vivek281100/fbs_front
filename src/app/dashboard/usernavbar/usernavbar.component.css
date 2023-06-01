@@ -7,3 +7,9 @@ div{
 .logbutton{
     float: right;
 }
+
+@media only screen and (max-width: 680px){
+    .links{
+        display: none;
+    }
+    }

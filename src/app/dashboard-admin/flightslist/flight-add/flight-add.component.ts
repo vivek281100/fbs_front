@@ -58,8 +58,8 @@ flights:Flight[] = [];
       DepartureAirportCode: ['', Validators.required],
       ArriavalAirportName: ['', Validators.required],
       ArraiavalAirportCode: ['', Validators.required],
-      DepartureDate: ['', Validators.required,Validators.min(new Date(this.today).getDate()),Error("Invalid Data")],
-      ArrivalDate: ['', Validators.required, Validators.min(new Date(this.today).getDate()),Error("invalid Date")],
+      DepartureDate: ['', Validators.required],
+      ArrivalDate: ['', Validators.required],
       DepartureCity: ['', Validators.required],
       ArrivalCity: ['', Validators.required],
       DepartureTime: ['', Validators.required],
@@ -77,6 +77,7 @@ flights:Flight[] = [];
 
     if(this.flightForm.valid)
     {
+      debugger
       console.log(this.flightForm.value)
    
       //

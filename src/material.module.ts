@@ -20,7 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 //side nav
 import { MatSidenavModule } from "@angular/material/sidenav";
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 // import { Mat } from '@angular/material/datepicker';
@@ -45,7 +45,8 @@ import {MatMenuModule} from '@angular/material/menu';
         MatGridListModule,
         MatSidenavModule,
         MatMenuModule,
-        MatTableModule
+        MatTableModule,
+        MatTabsModule
     ]
 })
 export class MaterialModule { }
