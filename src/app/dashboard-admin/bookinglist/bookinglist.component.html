@@ -38,10 +38,10 @@
       <div class="col-md-8">
         <div class="passengerlist" *ngIf="passengers.length > 0">
             <h2>For Booking id {{bookingid}}</h2>
-          <div class="passenger" *ngFor="let item of passengers">
-            <a class="close-icon" style="float: right;">
+          <div class="passenger"  *ngFor="let item of passengers">
+            <button class="close-icon" mat-icon-button style="float: right; color:blue;" (click)="delpassenger(item.id)">
               <mat-icon>close</mat-icon>
-            </a>
+            </button>
             <div class="card-content">
               <h1>{{item.firstName}} {{item.lastName}}</h1>
               <p>{{item.phoneNumber}}</p>

@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Flight } from '../Models/Flight';
 
 @Injectable({
   providedIn: 'root'
@@ -46,23 +47,46 @@ export class UserService {
 
   onSelectFlights(responce:any):Observable<any>
   {
-    debugger
+    // debugger
     let token = sessionStorage.getItem("Token");
     let headobj = new HttpHeaders().set("Authorization","bearer "+token);
-    debugger
+    // debugger
     return this.http.post('https://localhost:7102/api/Booking/AddBookingasync',responce, {headers: headobj});
   }
 
   //#endregion
 
+//#region get flight by id
+getflightbyId(fid:number):Observable<any>
+{
+  let token = sessionStorage.getItem("Token");
+    let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+    let id = new HttpParams().set("id",fid);
+    return this.http.get('https://localhost:7102/api/Flight/getflightsbyid',{headers:headobj,params:id});
+}
+//#endregion
+
+//#region saving the selected flight
+private selectedflight:BehaviorSubject<any> = new BehaviorSubject<any>(null)
+
+getselectedflight():Observable<Flight>
+{
+ return this.selectedflight.asObservable();
+}
+setSelectedFlight(obj:Flight)
+{
+  this.selectedflight.next(obj);
+}
+//#endregion
+
   //#region remove booking when passenger booking is canceled
   onBookingCancel(responce:any):Observable<any>
   {
-    debugger
+    // debugger
     let token = sessionStorage.getItem("Token");
     let headobj = new HttpHeaders().set("Authorization","bearer "+token);
     // var id = sessionStorage.getItem('bookingid');
-    debugger
+    // debugger
     return this.http.post('https://localhost:7102/api/Booking/DeleteBooking',responce ,{headers: headobj});
   }
   //#endregion
@@ -94,13 +118,12 @@ export class UserService {
     let token = sessionStorage.getItem("Token");
       let headobj = new HttpHeaders().set("Authorization","bearer "+token);
         
-        // debugger
+        debugger
       return this.http.get('https://localhost:7102/api/User/getUser',{headers: headobj}); 
   }
   //#endregion
  
   //#region update user
-
   updateuser(responce:any):Observable<any>
   {
     debugger
@@ -112,5 +135,16 @@ export class UserService {
   }
   //#endregion
 
-
+  //change password
+  //#region change pasword
+  changepassword(responce:any):Observable<any>
+  {
+    let token = sessionStorage.getItem("Token");
+    let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+    // let passwordparam = new HttpParams().set("password",responce);
+    console.log(responce);
+    debugger
+    return this.http.put('https://localhost:7102/api/User/UpdatePassword',responce,{headers:headobj});
+  }
+  //#endregion
 }

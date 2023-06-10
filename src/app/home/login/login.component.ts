@@ -39,7 +39,7 @@ export class LoginComponent {
             this.router.navigate(['dashboard-admin/options']);
             }
             else{
-              this.router.navigate(['dashboard']);
+              this.router.navigate(['dashboard/userbooking']);
             }
           } else {
                 this.toastr.error('Please contact Admin', 'InActive User');

@@ -34,9 +34,9 @@ export class Flight{
     arrivalTime :any;
 
 
-    basePrice?:number ;
+    basePrice!:number ;
 
-    totalNoofseats?:number;
+    totalNoofseats!:number;
     
     isrunning:boolean = false;
 }

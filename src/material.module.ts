@@ -8,6 +8,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 //dialog
 import {MatDialogModule} from "@angular/material/dialog";
+import { MatDialogActions } from "@angular/material/dialog";
 
 import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";

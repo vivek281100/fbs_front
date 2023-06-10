@@ -62,6 +62,8 @@ export class UsersComponent implements OnInit{
 
   adduser()
   {
+    if(this.adduserform.valid)
+    {
     debugger
     this.authservice.RegisterUser(this.adduserform.value).subscribe((res) => {
       debugger
@@ -76,6 +78,9 @@ export class UsersComponent implements OnInit{
         this.toastr.warning(res.message);
       }
     })
+  }else{
+    this.toastr.warning("enter all fields!!");
+  }
   }
 
   ////update user ////////--------------

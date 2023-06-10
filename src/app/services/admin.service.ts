@@ -160,4 +160,16 @@ getpassengersbybookingid(id:number):Observable<any>
 }
 //#endregion
 
+
+//#region delete passenger
+deletepassenger(id:number):Observable<any>
+{
+  let token = sessionStorage.getItem('Token');
+  let headObj = new HttpHeaders().set("Authorization","bearer "+token);
+  let passengerid = new HttpParams().set('id',id);
+  debugger
+  return this.http.delete('https://localhost:7102/api/Passenger/RemovePassenger',{headers:headObj,params:passengerid})
+}
+//#endregion
+
 }

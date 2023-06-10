@@ -62,4 +62,20 @@ export class BookinglistComponent {
       }
     })
   }
+
+  delpassenger(id:number)
+  {
+    debugger
+    this.adminservice.deletepassenger(id).subscribe((res) => {
+      this.toastr.toastrConfig.closeButton = true;
+      if(res.success)
+      {
+        this.toastr.success("passenger removed");
+        
+      }
+      else{
+        this.toastr.warning(res.message);
+      }
+    })
+  }
 }

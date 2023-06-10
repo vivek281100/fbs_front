@@ -1,7 +1,7 @@
 export class getUser{
  
     id!:number;
-    user_Name :string = '';
+    userName :string = '';
    
     email:string = '';
     phoneNumber :string = '';

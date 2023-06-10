@@ -16,18 +16,27 @@ export class ProfileComponent implements OnInit {
 
   user:any = {};
 
+  // password:string = '';
+  // conformpassword:string = '';
+  passwordChangeform!:FormGroup;
+
+
   updateuserform!:FormGroup;
 
   // user : User  = {user_Name:'',email:'',password:'',phoneNumber:''}
   constructor(private userservice:UserService,private toastr:ToastrService,private builder: FormBuilder) {
     
     // console.log(this.user);
+    debugger
     this.userservice.getuserinfo().subscribe((res) => {
+      debugger
       if(res.success)
       {
       this.user = res.data;
       console.log(this.user);
-      this.createForm();
+
+      debugger
+     
       this.toastr.success(res.message);
       }
       else{
@@ -38,11 +47,13 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(){
-    // this.createForm();
+    this.createForm();
+    this.createpasswodForm();
   }
 
   getuser()
   {
+    debugger
     this.userservice.getuserinfo().subscribe((res) => {
       if(res.success)
       {
@@ -61,6 +72,13 @@ createForm(){
     userName:this.builder.control('',Validators.required),
     email:this.builder.control('',Validators.required),
     phoneNumber: this.builder.control('',Validators.required)
+  })
+}
+
+createpasswodForm(){
+  this.passwordChangeform = this.builder.group({
+    password:this.builder.control('',Validators.required),
+    confirmpassword:this.builder.control('',Validators.required)
   })
 }
 
@@ -89,5 +107,24 @@ createForm(){
   }
 }
 
+///change password!
+Onchangepassword()
+{
+ if(this.passwordChangeform.value.password === this.passwordChangeform.value.confirmpassword)
+ {debugger
+  this.userservice.changepassword(this.passwordChangeform.value).subscribe((res) => {
+    if(res.success)
+    {
+    console.log(res.data);
+    this.toastr.success(res.message);
+    }
+    else{
+      this.toastr.warning(res.message);
+    }
+  })
+ } else{
+  this.toastr.warning("Both should be equal!!");
+ }
+}
 
 }

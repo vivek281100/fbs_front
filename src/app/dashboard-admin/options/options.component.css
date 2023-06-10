@@ -8,7 +8,7 @@ mat-grid-list{
 
 
 mat-grid-tile {
-    background-color: black;
+    /* background-color: black; */
     color: white;
     /* max-width: 15%; */
     row-gap: 20px;

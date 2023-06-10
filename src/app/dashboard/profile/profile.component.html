@@ -37,7 +37,15 @@
             </div>
 
         </mat-tab>
-        <mat-tab label="Third"> Content 3 </mat-tab>
+        <mat-tab label="Password" > 
+            <form [formGroup]="passwordChangeform" (ngSubmit)="Onchangepassword()">
+            <input  type="password" id="password" formControlName="password" required/>    
+            <input  type="password" id="password" formControlName="confirmpassword" required/>    
+
+            <hr>
+            <button type="submit">Change</button>
+            </form>
+        </mat-tab>
       </mat-tab-group>
       
       

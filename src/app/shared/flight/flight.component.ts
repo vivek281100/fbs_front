@@ -37,12 +37,17 @@ flights:Flight[] = [];
         
          this.toastr.success("Flight Selected");
         //  this.flightObj.flightId = id;
-         debugger
+        //  debugger
+         this.userservice.getflightbyId(id).subscribe((res) => {
+          // console.log(res.data);
+          this.userservice.setSelectedFlight(res.data);
+         })
+        //  debugger
          this.userservice.onSelectFlights(id).subscribe((res) => {
-          console.log(res.data.value)
-          debugger
-          console.log(res.data.id);
-          debugger
+          // console.log(res.data.value)
+          // debugger
+          // console.log(res.data.id);
+          // debugger
           sessionStorage.setItem("bookingid",res.data.id)
           this.route.navigate(['dashboard/passenger']);
          })

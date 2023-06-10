@@ -102,3 +102,7 @@
 .mat-icon {
   margin-right: 8px;
 }
+
+.mat-grid-tile.space {
+  margin-right: 10px;
+}

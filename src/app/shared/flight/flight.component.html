@@ -5,8 +5,10 @@
         <div class="flight-details">
           <div class="flight-name">{{ item.flight_Name }} {{ item.flight_code }}</div>
           <div class="airport-details">{{ item.departureAirportName }} ({{ item.departureAirportCode }}) - {{ item.arriavalAirportName }} ({{ item.arraiavalAirportCode }})</div>
-          <div class="price">₹ {{ item.basePrice }}</div>
+          <div class="price"> {{ item.basePrice | currency:"₹"}}</div>
+
         </div>
+        <div class="seats" style="float: right;"> Seats:{{ item.totalNoofseats}}</div>
       </div>
       <div class="flight-schedule">
         <div class="schedule-item">

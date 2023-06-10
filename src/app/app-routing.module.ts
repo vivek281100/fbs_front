@@ -15,6 +15,7 @@ import { BookinglistComponent } from './dashboard-admin/bookinglist/bookinglist.
 import { FlightslistComponent } from './dashboard-admin/flightslist/flightslist.component';
 import { UsersComponent } from './dashboard-admin/users/users.component';
 import { PaymentsComponent } from './dashboard/payments/payments.component';
+import { UserbookingComponent } from './dashboard/userbooking/userbooking.component';
 
 const routes: Routes = [
   {
@@ -40,12 +41,13 @@ const routes: Routes = [
       // },
       { path: 'flights', component: FlightComponent },
       {path:'passenger',component:PassengerComponent},
-      {path:'payments',component:PaymentsComponent}
-      // { path: 'booking', component: BookingComponent }
+      {path:'payments',component:PaymentsComponent},
+       { path: 'userbooking', component: UserbookingComponent }
     ],
     canActivate:[AuthGuard]
   },
   { path: '', redirectTo: 'home/booking', pathMatch: 'full' },
+  // {path:'dashboard',redirectTo:'dashboard/userbooking', pathMatch:'full'},
   {
     path:'dashboard-admin',
     component:DashboardAdminComponent,
