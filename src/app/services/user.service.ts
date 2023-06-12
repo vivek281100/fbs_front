@@ -201,14 +201,28 @@ export class UserService {
   }
 
   //update booking status
-  updatebookingstatus(bid: number): Observable<any> {
+  updatebookingstatus(id: number): Observable<any> {
     let token = sessionStorage.getItem('Token');
     let headObj = new HttpHeaders().set('Authorization', 'bearer ' + token);
-    let nid = new HttpParams().set('id', bid);
+    // let id = new HttpParams().set('id', bid);
     debugger;
     return this.http.put(
       'https://localhost:7102/api/Booking/updateBookingStatus',
-      { headers: headObj, params: nid }
+      id,
+      { headers: headObj }
+    );
+  }
+
+  //get payment by booking id.
+
+  paymentbybookingid(bid: number): Observable<any> {
+    let token = sessionStorage.getItem('Token');
+    let headObj = new HttpHeaders().set('Authorization', 'bearer ' + token);
+    let id = new HttpParams().set('id', bid);
+    debugger;
+    return this.http.get(
+      'https://localhost:7102/api/Payment/getpaymentbybookingId',
+      { headers: headObj, params: id }
     );
   }
 }

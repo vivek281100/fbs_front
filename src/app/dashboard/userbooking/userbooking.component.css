@@ -1,0 +1,79 @@
+.booking-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.booking-card {
+  width: 250px;
+  background-color: #f9f3ec;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+  float: right;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #e65f5c;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #c92e2b;
+}
+
+.booking-details {
+  margin-bottom: 15px;
+}
+
+.booking-id {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #383838;
+}
+
+.booking-status {
+  font-style: italic;
+  margin-bottom: 5px;
+  color: #888888;
+}
+
+.booking-date,
+.booking-time {
+  margin-bottom: 5px;
+  color: #555555;
+}
+
+.booking-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-button {
+  padding: 5px;
+  background-color: #00b2a9;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  margin-left: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 12px;
+}
+
+.action-button:hover {
+  background-color: #008c84;
+}
+
+.paymentinfo {
+  background-color: rgb(139, 229, 233, 0.45);
+  padding: 15px;
+  width: max-content;
+  border-radius: 15px;
+  box-shadow: 0px 4px 5px darkcyan;
+}

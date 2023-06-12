@@ -1,20 +1,33 @@
 <!-- <app-booking></app-booking> -->
-<div *ngFor="let booking of bookings">
-  <div class="booking" style="width: 200px; background-color: aquamarine">
+<div class="booking-container">
+  <div class="booking-card" *ngFor="let booking of bookings">
     <button
-      style="float: right"
+      class="close-button"
       mat-icon-button
       (click)="removebooking(booking.id)"
     >
       <mat-icon>close</mat-icon>
     </button>
-    <p>{{ booking.id }}</p>
-    <p>{{ booking.status }}</p>
-    <p>{{ booking.bookingdatetime | date : "dd-MM-yyyy" }}</p>
-    <p>{{ booking.bookingdatetime | date : "HH:mm" }}</p>
-    <div class="buttons">
-      <button>See Passengers</button>
-      <button>See Payment Info</button>
+    <div class="booking-details">
+      <p class="booking-id">Booking Id:{{ booking.id }}</p>
+      <p class="booking-status">Status: {{ booking.status }}</p>
+      <p class="booking-date">
+        Date :{{ booking.bookingdatetime | date : "dd-MM-yyyy" }}
+      </p>
+      <p class="booking-time">
+        Time: {{ booking.bookingdatetime | date : "HH:mm" }}
+      </p>
+    </div>
+    <div class="booking-actions">
+      <button
+        class="action-button"
+        (click)="flightandpassengerinfo(booking.id)"
+      >
+        See flight and Passengers info
+      </button>
+      <button class="action-button" (click)="paymentinfo(booking.id)">
+        See Payment Info
+      </button>
     </div>
   </div>
 </div>
@@ -23,3 +36,41 @@
 status:boolean = true;
 bookingdatetime!:Date;
 flightId:string = ""; -->
+
+<div *ngIf="displaypayment">
+  <div class="paymentinfo">
+    <h4>payment info for booking id: {{ payment.bookingid }}</h4>
+    <p>
+      Mode of Payment: <strong> {{ payment.payment_Mode }}</strong>
+    </p>
+    <p>Status:{{ payment.paymentStatus }}</p>
+    <p>Paid Amount: {{ payment.total_Price | currency : "₹" }}</p>
+    <p>
+      Paid Date: {{ payment.payment_DateTime | date : "dd-MM-yyyy" }} Time:{{
+        payment.payment_DateTime | date : "HH-mm"
+      }}
+    </p>
+  </div>
+</div>
+
+<!-- booking
+: 
+null
+bookingid
+: 
+152
+id
+: 
+11
+paymentStatus
+: 
+true
+payment_DateTime
+: 
+"2023-06-12T09:47:10.8557244"
+payment_Mode
+: 
+"Card"
+total_Price
+: 
+8668 -->

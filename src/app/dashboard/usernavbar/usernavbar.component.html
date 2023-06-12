@@ -1,33 +1,44 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button mat-button [matMenuTriggerFor]="menu" ><mat-icon style="size: 10px;color: white;">menu</mat-icon></button>
-      <mat-menu #menu="matMenu">
-          <!-- <button mat-menu-item routerLink="bookings"> Bookings<mat-icon>book</mat-icon> </button> -->
-          <button mat-menu-item routerLink = "/dashboard/payments"> paments <mat-icon>payment</mat-icon></button>
-          <button [routerLink] mat-menu-item> Bookings <mat-icon>book</mat-icon> </button>
-          <button  mat-menu-item (click)="OnProfileClick()"> profile<mat-icon>person</mat-icon> </button>
-      </mat-menu>
-      <h1 style="padding-top: 10px;">DashBoard</h1>
-      <span class="menu-spacer"></span>
-      <div class="navlinks">
-        <div class="links">
-        <a mat-button routerLink = "/dashboard/userbooking"> Bookings<mat-icon>book</mat-icon> </a>
-        <a mat-button routerLink = "/dashboard/payments"> Payments <mat-icon>payment</mat-icon></a>
+  <mat-toolbar-row>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon style="size: 10px; color: white">menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <!-- <button mat-menu-item routerLink="bookings"> Bookings<mat-icon>book</mat-icon> </button> -->
+      <!-- <button mat-menu-item routerLink = "/dashboard/payments"> paments <mat-icon>payment</mat-icon></button> -->
+      <button [routerLink] mat-menu-item>
+        Bookings <mat-icon>book</mat-icon>
+      </button>
+      <button mat-menu-item (click)="OnProfileClick()">
+        profile<mat-icon>person</mat-icon>
+      </button>
+    </mat-menu>
+    <h1 style="padding-top: 10px">DashBoard</h1>
+    <span class="menu-spacer"></span>
+    <div class="navlinks">
+      <div class="links">
+        <a mat-button routerLink="/dashboard/userbooking">
+          Bookings<mat-icon>book</mat-icon>
+        </a>
+        <!-- <a mat-button routerLink = "/dashboard/payments"> Payments <mat-icon>payment</mat-icon></a> -->
         <a mat-button [routerLink]> FeedBack <mat-icon>star</mat-icon> </a>
         <!-- <a mat-button [routerLink]>  </a> -->
         <!-- <a mat-button [routerLink]> Create Activity </a> -->
         <!-- <mat-dialog-actions> -->
-        <a mat-button  (click)="OnProfileClick()"> Profile<mat-icon>person</mat-icon> </a>
-        </div>
-        <!-- </mat-dialog-actions> -->
-        <div class="logbutton">
-        <a mat-button class="logbutton" (click)="logout()"> Logout<mat-icon>logout</mat-icon></a>
-        </div>
+        <a mat-button (click)="OnProfileClick()">
+          Profile<mat-icon>person</mat-icon>
+        </a>
       </div>
-    </mat-toolbar-row>
-  
-    <!-- <mat-toolbar-row>
+      <!-- </mat-dialog-actions> -->
+      <div class="logbutton">
+        <a mat-button class="logbutton" (click)="logout()">
+          Logout<mat-icon>logout</mat-icon></a
+        >
+      </div>
+    </div>
+  </mat-toolbar-row>
+
+  <!-- <mat-toolbar-row>
         <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
       </mat-toolbar-row> -->
-  </mat-toolbar>
-  
+</mat-toolbar>

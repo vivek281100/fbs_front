@@ -1,63 +1,80 @@
-
-
 <div class="container">
+  <mat-tab-group>
+    <mat-tab label="profile" ngDefaultControl>
+      <!-- <div class="row"> -->
+      <div class="user">
+        <h1>{{ user.userName }}</h1>
+        <hr />
+        <h3>{{ user.email }}</h3>
+        <h3>{{ user.phoneNumber }}</h3>
+        <h3></h3>
+      </div>
+      <!-- </div> -->
+    </mat-tab>
+    <mat-tab label="update">
+      <div class="form">
+        <form [formGroup]="updateuserform" (ngSubmit)="updateprofile()">
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="userName"
+              id="username"
+              name="username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="phonenumber">Phone Number</label>
+            <input
+              type="tel"
+              formControlName="phoneNumber"
+              class="form-control"
+              name="phonenumber"
+              required
+            />
+          </div>
+          <button type="submit" class="submit-button">Update Now</button>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Password">
+      <form [formGroup]="passwordChangeform" (ngSubmit)="Onchangepassword()">
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          formControlName="confirmpassword"
+          required
+        />
 
-    <mat-tab-group>
-        <mat-tab label="profile" ngDefaultControl>
-             <!-- <div class="row"> -->
-            <div class= "user">
-                <h1>{{user.userName}}</h1>
-                <hr>
-                <h3>{{user.email}}</h3>
-                <h3>{{user.phoneNumber}}</h3>
-                <h3></h3>
-            </div>
-            <!-- </div> -->
-        </mat-tab>
-        <mat-tab label="update">
-            <!-- <div class="row">            <div class="col-md-11 "> -->
-            <div class="form">
-                <form [formGroup]="updateuserform" (ngSubmit)="updateprofile()">
-                    <div >
-                        <label for="username">User Name</label>
-                        <input type="text" class="formcontrol" formControlName="userName" id="username" name="username" required>
-                    </div>
-                    <div >
-                        <label for="email">email</label>
-                        <input type="email" formControlName="email" class="formcontrol" name="email"  required>
-                    </div>
-                    <div >
-                        <label for="phonenumber">Phone number</label>
-                        <input type="tel" formControlName="phoneNumber" class="formcontrol" name="phonenumber" required>
-                    </div>
-                    <button type="submit">Update</button>
-                </form>
-            <!-- </div> -->
-            <!-- </div> -->
-            </div>
+        <hr />
+        <button type="submit">Change</button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
 
-        </mat-tab>
-        <mat-tab label="Password" > 
-            <form [formGroup]="passwordChangeform" (ngSubmit)="Onchangepassword()">
-            <input  type="password" id="password" formControlName="password" required/>    
-            <input  type="password" id="password" formControlName="confirmpassword" required/>    
-
-            <hr>
-            <button type="submit">Change</button>
-            </form>
-        </mat-tab>
-      </mat-tab-group>
-      
-      
-
-    <div class="row">
-       
-        <!-- <div class="col-md-12 options">
+  <div class="row">
+    <!-- <div class="col-md-12 options">
             <button mat-raised-button (click)="updateprofile()">Update<mat-icon>edit</mat-icon></button>
             <button mat-raised-button>change password<mat-icon>password</mat-icon></button>
             <button mat-raised-button>Close Account<mat-icon>delete</mat-icon></button>
         </div> -->
-
-    </div>
-
+  </div>
 </div>
