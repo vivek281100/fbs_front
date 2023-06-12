@@ -1,1 +1,25 @@
-<app-booking></app-booking>
+<!-- <app-booking></app-booking> -->
+<div *ngFor="let booking of bookings">
+  <div class="booking" style="width: 200px; background-color: aquamarine">
+    <button
+      style="float: right"
+      mat-icon-button
+      (click)="removebooking(booking.id)"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <p>{{ booking.id }}</p>
+    <p>{{ booking.status }}</p>
+    <p>{{ booking.bookingdatetime | date : "dd-MM-yyyy" }}</p>
+    <p>{{ booking.bookingdatetime | date : "HH:mm" }}</p>
+    <div class="buttons">
+      <button>See Passengers</button>
+      <button>See Payment Info</button>
+    </div>
+  </div>
+</div>
+
+<!-- id!:number ;
+status:boolean = true;
+bookingdatetime!:Date;
+flightId:string = ""; -->

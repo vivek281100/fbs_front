@@ -18,23 +18,27 @@ export class PassengerComponent {
    */
   //variables
   passengers: passenger[] = [];
-
   selectedflight!:Flight;
-
   seatselectionOption:boolean = false;
-
+  passengerAddOption:boolean = false;
   rowNames:string[] = ["ran","A","B","c","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
   rows:string[] = []
-  // colset1:number[] = [1,2,3,4,5,6]
-  // colset2:number[] = []
-  cols:number[] = [];
+  cols:number[] = [1,2,3,4,5,6];
+  cost:number = 0;
+
+  //temp
+  currentseat:string='';
+
+  selectedSeats:string[] = [];
 
   constructor(private builder:FormBuilder,private route:Router,private userservice : UserService,private toastr:ToastrService) {
     this.userservice.getselectedflight().subscribe((res) => {
       this.selectedflight = res;
       console.log(res);
     })
+    this.getPassengers();
     this.seatselection();
+    
   }
 
 
@@ -46,6 +50,7 @@ export class PassengerComponent {
     gender: this.builder.control('',Validators.required),
     email: this.builder.control('',Validators.required),
     phonenumber: this.builder.control('',Validators.required),
+    allocatedSeat:'ran1',
     bookingId:0
   });
   //#endregion
@@ -83,13 +88,30 @@ export class PassengerComponent {
   }
 //#endregion
 
+//get passengers
+getPassengers()
+{
+  let id : number | null = this.convertToNumberfromstring(sessionStorage.getItem('bookingid'))
+  this.userservice.getpassengersbybookingid(id).subscribe((res) => {
+    if(res.success)
+    {
+      this.passengers = res.data;
+    }
+    else{
+      this.toastr.warning(res.message);
+    }
+  })
+  this.calculateCost()
+}
+
   //to add pasenger.
 //#region  add passenger
 
   AddPassenger()
   {
-    
+   debugger 
     this.AddPassengerForm.value.bookingId = this.convertToNumberfromstring(sessionStorage.getItem('bookingid'))
+    this.AddPassengerForm.value.allocatedSeat = this.currentseat;
     if(this.AddPassengerForm.valid)
     {
     this.userservice.OnAddPassenger(this.AddPassengerForm.value).subscribe((res) => {
@@ -101,6 +123,7 @@ export class PassengerComponent {
     else{
       this.toastr.error("Enter Required details");
     }
+    this.calculateCostOnAdd();
   }
 //#endregion
   
@@ -122,6 +145,7 @@ export class PassengerComponent {
         this.toastr.warning("something went wrong");
       }
     })
+    this.calculateCostOnremove();
 
   }
 //#endregion
@@ -138,14 +162,89 @@ export class PassengerComponent {
 
     
       let val:number = this.selectedflight.totalNoofseats 
-      for(let i = 1;i<= val/6;i++)
+      for(let i = 1;i< val/6;i++)
       {
         this.rows.push(this.rowNames[i]);
       }
-      for(let i = 1;i<=6;i++)
-      {
-        this.cols.push(i);
-      }
     
   }
+
+
+
+  //selected seats to display.
+  onSeatSelectionChange(seat:string)
+  {
+    if(this.selectedSeats.includes(seat))
+    {
+      this.selectedSeats = this.selectedSeats.filter(s => s !== seat);
+      this.passengers.forEach(item => {
+        if(item.allocatedSeat === seat)
+        {
+          this.OnRemovePassenger(item.id);
+        }
+      })
+      
+      
+    }else{
+      if(this.selectedSeats.length <= 6)
+      {
+        this.selectedSeats.push(seat);
+      }
+    }
+  }
+
+  //disabling seats
+  isSeatDisabled(seat:string)
+  {
+    if(this.selectedSeats.length >= 6)
+    {
+      if(this.selectedSeats.includes(seat))
+      {
+      return false;
+      }
+
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  //add passenger opiton
+  addPassengerOption(seat:string)
+  {
+    this.currentseat = seat;
+    this.passengerAddOption = !this.passengerAddOption;
+  }
+
+
+  payments()
+  {
+    this.route.navigate(['/dashboard/payments',this.cost]);
+  }
+
+
+
+  private calculateCost()
+  {
+    for(let i = 0; i<this.passengers.length;i++)
+    {
+      this.cost += this.selectedflight.basePrice;
+    }
+  }
+
+
+  private calculateCostOnAdd()
+  {
+    // this.passengers.forEach(item => {
+      this.cost += this.selectedflight.basePrice;
+    // })
+  }
+  private calculateCostOnremove()
+  {
+    // this.passengers.forEach(item => {
+      this.cost -= this.selectedflight.basePrice;
+    // })
+  }
+
 }

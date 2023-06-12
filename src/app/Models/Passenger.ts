@@ -16,4 +16,6 @@ export class passenger{
 
 
      phoneNumber: string = "";
+
+     allocatedSeat:string = "";
 }

@@ -149,6 +149,19 @@ getbookindbyflightId(id:number):Observable<any>
 
 //#endregion
 
+
+//#region  delete booking
+onBookingCancel(responce:any):Observable<any>
+  {
+    // debugger
+    let token = sessionStorage.getItem("Token");
+    let headobj = new HttpHeaders().set("Authorization","bearer "+token);
+    let id = new HttpParams().set('id',responce);
+    // debugger
+    return this.http.delete('https://localhost:7102/api/Booking/DeleteBooking',{headers: headobj, params:id});
+  }
+//#endregion
+
 //#region get passengers by booking id
 getpassengersbybookingid(id:number):Observable<any>
 {

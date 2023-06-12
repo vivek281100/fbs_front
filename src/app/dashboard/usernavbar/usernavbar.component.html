@@ -7,9 +7,9 @@
           <button [routerLink] mat-menu-item> Bookings <mat-icon>book</mat-icon> </button>
           <button  mat-menu-item (click)="OnProfileClick()"> profile<mat-icon>person</mat-icon> </button>
       </mat-menu>
-      <h1 style="padding-top: 1%;">DashBoard</h1>
+      <h1 style="padding-top: 10px;">DashBoard</h1>
       <span class="menu-spacer"></span>
-      <div>
+      <div class="navlinks">
         <div class="links">
         <a mat-button routerLink = "/dashboard/userbooking"> Bookings<mat-icon>book</mat-icon> </a>
         <a mat-button routerLink = "/dashboard/payments"> Payments <mat-icon>payment</mat-icon></a>
@@ -20,7 +20,9 @@
         <a mat-button  (click)="OnProfileClick()"> Profile<mat-icon>person</mat-icon> </a>
         </div>
         <!-- </mat-dialog-actions> -->
+        <div class="logbutton">
         <a mat-button class="logbutton" (click)="logout()"> Logout<mat-icon>logout</mat-icon></a>
+        </div>
       </div>
     </mat-toolbar-row>
   

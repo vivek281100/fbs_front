@@ -1,15 +1,33 @@
 
-div{
-    /* background-color: yellowgreen; */
+.navlinks{
+    display: inline-block;
     width: 88%;
     margin-left: 2%;
+    color:white
+}
+.links{
+    display:inline;
+    width: 70%;
+}
+a:hover{
+    color: darkorange;
 }
 .logbutton{
     float: right;
 }
 
-@media only screen and (max-width: 680px){
+@media only screen and (max-width: 754px){
+    .linklist{
+        /* background-color: yellowgreen; */
+        width: 100%;
+        margin-left: 2%;
+        display: flex;
+    }
     .links{
         display: none;
+    }
+    .logbutton{
+        float:right;
+    
     }
     }

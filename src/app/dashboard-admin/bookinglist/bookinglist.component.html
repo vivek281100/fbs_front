@@ -23,12 +23,14 @@
                     <td>Time           :</td>
                     <td>{{booking.bookingdatetime | date:'HH:mm'}}</td>
                 </tr>
+                
             </table>
           <!-- <p>Flight Id      : {{booking.flightId}}</p>
           <p>Booking Status : {{booking.status}}</p>
           <p>Booking Id     : {{booking.id}}</p>
           <p>Booking Date   : {{booking.bookingdatetime | date:'yyyy-MM-dd'}}</p>
           <p>Time           : {{booking.bookingdatetime | date:'HH:mm'}}</p> -->
+          <button mat-raised-button style="background-color: red;color: white;" (click)="removeBooking(booking.id)" >Remove<mat-icon>close</mat-icon></button>
           <button mat-raised-button color="primary" (click)="getpassengers(booking.id)">
             See Passengers
             <mat-icon>person</mat-icon>

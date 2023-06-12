@@ -62,18 +62,6 @@
   flex-grow: 1;
 }
 
-.age-slider {
-  width: 100%;
-}
-
-.radio-group {
-  display: flex;
-}
-
-.radio-button {
-  margin-right: 10px;
-}
-
 .submit-container {
   display: flex;
   justify-content: center;
@@ -106,3 +94,45 @@
 .mat-grid-tile.space {
   margin-right: 10px;
 }
+
+.seats {
+  width: 70%;
+  /* height: 40%; */
+  height: min-content;
+  /* padding-left: 15%; */
+  margin-top: 15px;
+  margin-left: 15%;
+}
+
+.selected-seats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.selected-seats h3 {
+  margin-bottom: 10px;
+}
+
+.selected-seats ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-seats li {
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.flightDetail {
+  background-color: skyblue;
+  margin-bottom: 15px;
+}
+
+/* //adding transitions/// */

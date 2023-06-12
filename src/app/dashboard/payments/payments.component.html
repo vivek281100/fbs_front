@@ -1,3 +1,182 @@
-<div class="payment">
-    <p> Sorry, Currently under developing,😢</p>
+<div class="row">
+  <div class="col-md-8">
+    <div class="passengerContainer">
+      <div class="card-container">
+        <h1 class="card-title">Passengers Information</h1>
+      </div>
+
+      <div class="passenger-list" *ngIf="passengers.length > 0">
+        <div
+          class="passenger-card"
+          *ngFor="let item of passengers"
+          [@staggeredAnimation]
+        >
+          <div class="passenger-details">
+            <h2 class="passenger-name">
+              {{ item.firstName }} {{ item.lastName }}
+            </h2>
+            <ul class="passenger-info">
+              <li>
+                <span class="info-label">Phone:</span>
+                <span class="info-value">{{ item.phoneNumber }}</span>
+              </li>
+              <li>
+                <span class="info-label">Gender:</span>
+                <span class="info-value">{{ item.gender }}</span>
+              </li>
+              <li>
+                <span class="info-label">Age:</span>
+                <span class="info-value">{{ item.age }}</span>
+              </li>
+              <li class="email">
+                <span class="info-label">Email:</span>
+                <span class="info-value">{{ item.email }}</span>
+              </li>
+              <li>
+                <span class="info-label">Seat:</span>
+                <span class="info-value">{{ item.allocatedSeat }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cost col-md-12" style="display: flex" [@staggeredAnimation]>
+        <div style="font-size: small; margin-right: 3px">Total Cost:</div>
+        <div style="font-size: large; margin-right: 5px; display: flex">
+          {{ totalCost | currency : "₹" }}
+          <div style="font-size: x-small">(exclusive of payment tax!)</div>
+        </div>
+        <div style="margin-left: 15%; font-size: x-small">
+          <p>Cost: {{ cost | currency : "₹" }}</p>
+          <p>PlatformTax: {{ ptax | currency : "₹" }}</p>
+          <p>GST: {{ gst | currency : "₹" }}</p>
+        </div>
+        <!-- <div style="margin-left: 15%">
+          <label for="coupon">Enter Coupon</label>
+          <input type="text" name="coupon" id="coupon" />
+        </div> -->
+      </div>
+    </div>
+    <div class="row" [@staggeredAnimation]>
+      <div class="col-md-12 invoice">
+        <div style="font-size: medium">Invoice details</div>
+        <p style="font-size: smaller">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+          praesentium dolore ipsam qui pariatur rerum veniam quis aut sed
+          laudantium! Id, excepturi. Nam a numquam deserunt ipsa, cupiditate
+          inventore ipsam? Exercitationem consequatur alias accusantium sequi
+          perspiciatis eum nobis consequuntur? Exercitationem corrupti quos
+          fugit dolorum perferendis officia repudiandae impedit? Hic corporis,
+          aut doloribus dicta quidem ratione neque consectetur cupiditate ipsam!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-12 payment">
+        <div class="payment-container" [@staggeredAnimation]>
+          <h5>Payment Gateway</h5>
+          <p style="font-weight: bold">{{ user.userName }}</p>
+          <p>{{ user.email }}, {{ user.phoneNumber }}</p>
+          <!-- <div class="payment-methods">
+            <label>
+              <input type="radio" name="paymentMethod" value="card" />
+              Card
+            </label>
+            <label>
+              <input type="radio" name="paymentMethod" value="upi" />
+              UPI
+            </label>
+          </div> -->
+          <mat-tab-group>
+            <mat-tab label="Card" ngDefaultControl>
+              <div class="cardpayment">
+                <div class="card-details">
+                  <form [formGroup]="cardForm" (ngsubmit)="payment('Card')">
+                    <mat-form-field>
+                      <mat-label for="cardNumber">Card Number:</mat-label>
+                      <input
+                        matInput
+                        type="text"
+                        id="cardNumber"
+                        name="cardNumber"
+                        formControlName="cardNumber"
+                      />
+                      <mat-icon matIconSuffix>credit_card</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label for="cardExpiration"
+                        >Expiration Date:</mat-label
+                      >
+                      <input
+                        matInput
+                        type="text"
+                        id="cardExpiration"
+                        name="cardExpiration"
+                        placeholder="mm/yy"
+                        formControlName="cardExpiration"
+                      />
+                      <mat-icon matIconSuffix>calendar_today</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label for="cardCVV">CVV:</mat-label>
+                      <input
+                        matInput
+                        type="password"
+                        id="cardCVV"
+                        name="cardCVV"
+                        formControlName="cardCVV"
+                      />
+                      <mat-icon matIconSuffix>***</mat-icon>
+                    </mat-form-field>
+                    <div class="total-amount">
+                      <p>
+                        Total Amount to be Paid:
+                        {{ totalCost + cardtax | currency : "₹" }}
+                      </p>
+                    </div>
+                    <div class="pay" style="margin: 0">
+                      <button
+                        mat-raised-button
+                        style="width: 70%"
+                        type="submit"
+                        (click)="payment('Card')"
+                      >
+                        Pay<mat-icon>currency</mat-icon>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="UPI">
+              <div class="upipayment">
+                <h3>UPI Payment</h3>
+                <div class="upi-details">
+                  <label for="upiId">UPI ID:</label>
+                  <input type="text" id="upiId" name="upiId" />
+                </div>
+                <div class="total-amount">
+                  <p>Total Amount to be Paid: {{ cost | currency : "₹" }}</p>
+                </div>
+              </div>
+              <div class="pay" style="margin: 0">
+                <button
+                  mat-raised-button
+                  style="width: 70%"
+                  (click)="payment('UPI')"
+                >
+                  Pay<mat-icon>pay</mat-icon>
+                </button>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

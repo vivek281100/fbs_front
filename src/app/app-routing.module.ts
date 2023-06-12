@@ -19,16 +19,17 @@ import { UserbookingComponent } from './dashboard/userbooking/userbooking.compon
 
 const routes: Routes = [
   {
-  path: 'home',
+    path: 'home',
     component: HomeComponent,
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       {
-        path:'booking',component:BookingComponent
+        path: 'booking',
+        component: BookingComponent,
       },
-      { path:'flights',component:FlightComponent}
-    ]
+      { path: 'flights', component: FlightComponent },
+    ],
   },
   {
     path: 'dashboard',
@@ -40,40 +41,39 @@ const routes: Routes = [
       //   pathMatch:'full'
       // },
       { path: 'flights', component: FlightComponent },
-      {path:'passenger',component:PassengerComponent},
-      {path:'payments',component:PaymentsComponent},
-       { path: 'userbooking', component: UserbookingComponent }
+      { path: 'passenger', component: PassengerComponent },
+      { path: 'payments/:cost', component: PaymentsComponent },
+      { path: 'userbooking', component: UserbookingComponent },
+      { path: 'booking', component: BookingComponent },
     ],
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard],
   },
   { path: '', redirectTo: 'home/booking', pathMatch: 'full' },
   // {path:'dashboard',redirectTo:'dashboard/userbooking', pathMatch:'full'},
   {
-    path:'dashboard-admin',
-    component:DashboardAdminComponent,
-    canActivate:[AuthGuard],
-    children:[
-      {path:'options',
-      component:OptionsComponent
-        },
-        {
-          path:'bookinglist/:id',
-          component:BookinglistComponent
-        },
-        {
-          path:'flights',
-          component:FlightslistComponent
-        },
-        {
-          path:'users',
-          component:UsersComponent
-        }
-    ]
+    path: 'dashboard-admin',
+    component: DashboardAdminComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'options', component: OptionsComponent },
+      {
+        path: 'bookinglist/:id',
+        component: BookinglistComponent,
+      },
+      {
+        path: 'flights',
+        component: FlightslistComponent,
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
+      },
+    ],
   },
   {
-    path:'passtest',
-    component:PassengerComponent
-  }
+    path: 'passtest',
+    component: PassengerComponent,
+  },
   // {
   //   path:'dashboard/logout',
   //   redirectTo:'home',
@@ -105,6 +105,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

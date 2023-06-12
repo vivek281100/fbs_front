@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Booking } from 'src/app/Models/Booking';
 import { passenger } from 'src/app/Models/Passenger';
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -11,7 +12,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class BookinglistComponent {
   id!:number;
-  bookings:any[] = [];
+  bookings:Booking[] = [];
   passengers:passenger[] = [];
   bookingid!:number ;
   constructor(private routeactive:ActivatedRoute,private adminservice:AdminService,private toastr:ToastrService)
@@ -61,6 +62,18 @@ export class BookinglistComponent {
         this.toastr.warning(res.message);
       }
     })
+  }
+
+  removeBooking(id:number)
+  {
+    this.adminservice.onBookingCancel(id).subscribe((res)=>{
+      if(res.success)
+      {
+        this.toastr.success(res.message);
+      }
+    })
+    this.bookings = this.bookings.filter(b => b.id !== id);
+    
   }
 
   delpassenger(id:number)

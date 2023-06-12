@@ -1,0 +1,155 @@
+.passengerContainer {
+  background-color: rgb(161, 237, 237, 0.25);
+  padding: 10px;
+  /* margin: 10px 10px; */
+  border-radius: 15px;
+}
+
+.card-container {
+  /* text-align: center; */
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 550;
+  color: #333;
+}
+
+.passenger-card {
+  display: flex;
+  align-items: center;
+  /* background-color: rgb(4, 216, 195); */
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 5px rgba(171, 171, 171, 0.5);
+}
+
+.passenger-details {
+  flex: 1;
+  width: 90%;
+  overflow-x: hidden;
+}
+
+.passenger-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #030303;
+  /* margin: 0 0; */
+}
+
+.passenger-info {
+  font-size: 14px;
+  /* color: #a19f9f; */
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+}
+
+.passenger-info li {
+  margin-right: 15px;
+}
+
+.info-label {
+  font-weight: lighter;
+}
+
+.info-value {
+  margin-left: 5px;
+}
+
+/* //for cost// */
+.cost {
+  /* display: flex; */
+  align-items: center;
+  /* background-color: #bde7fac3; */
+  background-color: rgb(161, 237, 237, 0.25);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0px 4px 5px rgba(153, 152, 152, 0.5);
+}
+
+.invoice {
+  align-items: center;
+  /* background-color: #bde7fac3; */
+  background-color: rgb(161, 237, 237, 0.25);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0px;
+  box-shadow: 0px 4px 5px rgba(146, 146, 146, 0.5);
+}
+.payment {
+  /* background-color: aquamarine; */
+  background-color: rgb(161, 237, 237, 0.25);
+  padding-top: 20px;
+  min-height: 640px;
+  border-radius: 15px;
+  margin-left: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 5px rgb(161, 160, 160, 0.45);
+}
+mat-form-field {
+  height: 70%;
+}
+
+.cardpayment {
+  margin-top: 10px;
+  margin-left: 15%;
+}
+@media only screen and (max-width: 770px) {
+  .passenger-card {
+    display: flex;
+    align-items: center;
+    background-color: #bde7fac3;
+    border-radius: 5px;
+    /* padding: 10px; */
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .passenger-info {
+    font-size: 10px;
+    /* color: #a19f9f; */
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  .passenger-details {
+    flex: 1;
+    width: 90%;
+    overflow-x: hidden;
+  }
+
+  .passenger-info li {
+    margin-right: 5px;
+  }
+
+  .info-label {
+    font-weight: bold;
+  }
+
+  .info-value {
+    margin-left: 2px;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .passenger-details {
+    flex: 1;
+    width: 90%;
+    overflow-x: scroll;
+  }
+  .payment {
+    /* background-color: aquamarine; */
+    padding-top: 20px;
+    min-height: 600px;
+    margin-left: 10px;
+    overflow-x: scroll;
+  }
+}
