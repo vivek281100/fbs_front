@@ -127,14 +127,14 @@ export class PaymentsComponent {
 
   payment(val: string) {
     if (this.cardForm.valid) {
-      debugger;
+      // debugger;
       this.paymentObj.payment_Mode = val;
 
       let bid = sessionStorage.getItem('bookingid');
       let bookid: number;
-      debugger;
+      // debugger;
       if (bid !== null) {
-        debugger;
+        // debugger;
         bookid = +bid;
         this.paymentObj.bookingid = +bid;
       }
@@ -144,15 +144,15 @@ export class PaymentsComponent {
       } else {
         this.paymentObj.total_Price = this.totalCost;
       }
-      debugger;
+      // debugger;
       this.userservice.addpayment(this.paymentObj).subscribe((res) => {
-        debugger;
+        // debugger;
         console.log(res);
         if (res.success) {
-          debugger;
+          // debugger;
           this.userservice.updatebookingstatus(bookid).subscribe((res) => {
             if (res.success) {
-              debugger;
+              // debugger;
               this.route.navigate(['dashboard/userbooking']);
               this.toastr.success(res.message);
             } else {

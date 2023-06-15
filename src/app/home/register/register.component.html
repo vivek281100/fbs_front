@@ -1,39 +1,57 @@
 <div class="registercontainer">
-<mat-card style="background-color: transparent;">
-    <mat-card-header style="margin-left: 5%;">
-        <h2>Registration</h2>
+  <mat-card style="background-color: transparent">
+    <mat-card-header style="margin-left: 5%">
+      <h2>Registration</h2>
     </mat-card-header>
     <mat-card-content>
-        <form class="example-form" [formGroup]="registerform" (ngSubmit)="proceedregister()">
-            <!-- <mat-form-field class="example-full-width">
+      <form
+        class="example-form"
+        [formGroup]="registerform"
+        (ngSubmit)="proceedregister()"
+      >
+        <!-- <mat-form-field class="example-full-width">
               <mat-label>Username</mat-label>
               <input matInput formControlName="id" >
             </mat-form-field> -->
-            <mat-form-field class="example-full-width">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="userName" >
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput formControlName="password" >
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" >
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>phonenumber</mat-label>
-                <input matInput formControlName="phonenumber" >
-              </mat-form-field>
-              <!-- <mat-radio-group formControlName="phonenumber" aria-label="">
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="userName" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>phonenumber</mat-label>
+          <input matInput formControlName="phonenumber" />
+        </mat-form-field>
+        <!-- <mat-radio-group formControlName="phonenumber" aria-label="">
                 <mat-radio-button value="male">Male</mat-radio-button>
                 <mat-radio-button value="female">Female</mat-radio-button>
               </mat-radio-group> -->
-              <div style="margin-left: 35%;">
-                <button mat-raised-button color="primary">Submit</button>
-                <a routerLink="../login" mat-raised-button style="background-color: darkslategray;">Back to Login</a>
-              </div>
-          </form>
+        <div style="margin-left: 33%">
+          <button
+            mat-raised-button
+            style="
+              background-color: transparent;
+              border: none;
+              margin-right: 5px;
+            "
+          >
+            Submit
+          </button>
+          <a
+            routerLink="../login"
+            mat-raised-button
+            style="background-color: transparent"
+            >Back to Login</a
+          >
+        </div>
+      </form>
     </mat-card-content>
   </mat-card>
 </div>

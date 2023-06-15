@@ -123,7 +123,7 @@ export class UserService {
     let headobj = new HttpHeaders().set('Authorization', 'bearer ' + token);
     let id = new HttpParams().set('id', responce);
 
-    debugger;
+    // debugger;
     return this.http.delete(
       'https://localhost:7102/api/Passenger/RemovePassenger',
       { headers: headobj, params: id }
@@ -166,7 +166,7 @@ export class UserService {
     let headobj = new HttpHeaders().set('Authorization', 'bearer ' + token);
     // let passwordparam = new HttpParams().set("password",responce);
     console.log(responce);
-    debugger;
+    // debugger;
     return this.http.put(
       'https://localhost:7102/api/User/UpdatePassword',
       responce,
@@ -180,7 +180,7 @@ export class UserService {
   addpayment(responce: Payment): Observable<any> {
     let token = sessionStorage.getItem('Token');
     let headObj = new HttpHeaders().set('Authorization', 'bearer ' + token);
-    debugger;
+    // debugger;
     return this.http.post(
       'https://localhost:7102/api/Payment/AddPayment',
       responce,
@@ -205,7 +205,7 @@ export class UserService {
     let token = sessionStorage.getItem('Token');
     let headObj = new HttpHeaders().set('Authorization', 'bearer ' + token);
     // let id = new HttpParams().set('id', bid);
-    debugger;
+    // debugger;
     return this.http.put(
       'https://localhost:7102/api/Booking/updateBookingStatus',
       id,
@@ -219,7 +219,7 @@ export class UserService {
     let token = sessionStorage.getItem('Token');
     let headObj = new HttpHeaders().set('Authorization', 'bearer ' + token);
     let id = new HttpParams().set('id', bid);
-    debugger;
+    // debugger;
     return this.http.get(
       'https://localhost:7102/api/Payment/getpaymentbybookingId',
       { headers: headObj, params: id }

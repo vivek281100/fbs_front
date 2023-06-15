@@ -1,6 +1,6 @@
 <!-- <app-booking></app-booking> -->
-<div class="booking-container">
-  <div class="booking-card" *ngFor="let booking of bookings">
+<div class="booking-container" [@fadeanimation]>
+  <div class="booking-card" *ngFor="let booking of bookings" [@fadeanimation]>
     <button
       class="close-button"
       mat-icon-button
@@ -38,7 +38,7 @@ bookingdatetime!:Date;
 flightId:string = ""; -->
 
 <div *ngIf="displaypayment">
-  <div class="paymentinfo">
+  <div class="paymentinfo" [@fadeanimation]>
     <h4>payment info for booking id: {{ payment.bookingid }}</h4>
     <p>
       Mode of Payment: <strong> {{ payment.payment_Mode }}</strong>
