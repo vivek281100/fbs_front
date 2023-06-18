@@ -1,160 +1,157 @@
-.passenger-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
+.flight-card {
+  /* background-color: rgb(97, 97, 97, 0.4); */
+  /* padding: 10px; */
+  border-radius: 15px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
 
-.passenger-card {
-  width: 290px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-}
-
-.passenger-card .close-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #3867d6;
-  cursor: pointer;
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-content h1 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.card-content p {
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.passenger-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.flight-header {
+  /* background-color: aqua; */
+  /* display: flex; */
   width: 100%;
-  margin-bottom: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: inline-flex;
+  /* background-color: aliceblue; */
+  padding: 10px;
+  padding-left: 20px;
 }
-
-.input-group {
-  display: flex;
-  gap: 20px;
-  width: 100%;
+.flight-details {
+  /* background-color: antiquewhite; */
+  width: 85%;
 }
-
-.input-field {
-  flex-grow: 1;
+.flight-name {
+  /* background-color: yellowgreen; */
+  /* color: white; */
+  font-size: small;
+  opacity: 0.8;
 }
-
-.submit-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.airport-details {
+  /* background-color: yellow; */
+  font-size: large;
+  font-style: bold;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
-
-.passenger-submit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  background-color: #32a852;
-  color: #ffffff;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 14px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.price {
+  /* background-color: blueviolet; */
+  color: rgb(22, 200, 22);
+  padding-top: 5px;
+  font-size: x-large;
 }
-
-.passenger-submit:hover {
-  background-color: #238c3f;
+.flightseatscount {
+  /* background-color: slategrey; */
+  padding-top: 18px;
+  float: right;
+  width: 15%;
+  text-align: center;
+  /* font-size: large; */
+  /* max-width: 5%; */
+  /* float: right; */
+  /* margin-left: 30%; */
 }
-
-.mat-icon {
-  margin-right: 8px;
-}
-
-.mat-grid-tile.space {
+.flight-schedule {
+  /* background-color: violet; */
+  background-color: rgb(65, 65, 65);
+  margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  display: flex;
+  padding: 10px;
+  padding-left: 20px;
+  /* border-bottom-left-radius: 10px; */
+  /* border-bottom-right-radius: 10px; */
+  border-radius: 10px;
+}
+.scheduleitem {
+  background-color: rgb(193, 192, 192, 0.6);
+  padding: 4px;
+  border-radius: 10px;
+  width: 150px;
+  color: white;
+}
+.schedulelabel {
+  /* background-color: thistle; */
+  padding-left: 5px;
+}
+.scheduledate {
+  /* background-color: blue; */
+  padding-left: 5px;
+}
+.scheduletime {
+  /* background-color: springgreen; */
+  padding-left: 5px;
+}
+.spacer {
+  width: 75%;
+  height: auto;
+  /* background-color: azure; */
+  text-align: center;
+  padding-top: 18px;
+}
+.flighticon {
+  /* background-color: tan; */
+  /* margin-top: 20px; */
+  transform: rotate(90deg);
+  color: rgb(156, 154, 154);
 }
 
-mat-grid-list {
-  padding-bottom: 0px !important;
+/* //// seatscontainer/// */
+.seatscontainer {
+  /* background-color: rgb(175, 175, 175); */
+  box-shadow: 0 0 4px rgb(185, 185, 185);
+  margin-top: 20px;
+  border-radius: 10px;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .seats {
-  width: 70%;
-  /* height: 40%; */
-  height: min-content;
-  /* padding-left: 15%; */
-  margin-top: 15px;
-  margin-left: 15%;
+  /* background-color: aqua; */
+  /* background-color: rgb(252, 252, 252); */
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(212, 211, 211, 0.5);
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+mat-grid-tile {
+  margin-left: 2px !important;
+  margin-right: 2px !important;
+}
+.checkbox {
+  /* background-color: rgb(216, 216, 216); */
+  padding-right: 2px;
+  border-radius: 10px;
+  transition: all ease-in-out 500ms;
+  /* color: white; */
+}
+.checkbox:hover {
+  background-color: rgb(255, 166, 0);
+}
+.checkboxlabel {
+  /* color: white; */
+  padding-right: 2px;
 }
 
 .selected-seats {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  gap: 1vw;
   margin-top: 20px;
-  margin-bottom: 20px;
+  min-height: 10vh;
+  padding: 10px;
+  /* border-style: solid; */
+  /* border-color: rgb(102, 102, 102, 0.5); */
+  box-shadow: 0 0 5px rgba(166, 166, 166, 0.7);
+}
+.selected-seats h2 {
+  position: relative;
+  top: -25px;
+  background-color: white;
 }
 
-.selected-seats h3 {
-  margin-bottom: 10px;
+.seatitem {
+  background-color: rgb(219, 219, 219);
+  padding: 5px;
 }
-
-.selected-seats ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.selected-seats li {
-  display: inline-block;
-  margin-right: 10px;
-  background-color: #007bff;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.flightDetail {
-  background-color: skyblue;
-  margin-bottom: 15px;
-}
-
-.seatscontainer,
-.flight-card {
-  background-color: rgb(4, 4, 4, 0.2);
-  border-radius: 15px;
-  padding: 20px;
-}
-
-.passenger-list {
-  background-color: rgb(4, 4, 4, 0.2);
-  border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 15px;
-}
-.seats {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-/* //adding transitions/// */

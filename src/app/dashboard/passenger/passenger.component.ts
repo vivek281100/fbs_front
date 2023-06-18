@@ -6,13 +6,14 @@ import { ToastrService } from 'ngx-toastr';
 import { Flight } from 'src/app/Models/Flight';
 import { passenger } from 'src/app/Models/Passenger';
 import { UserService } from 'src/app/services/user.service';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-passenger',
   templateUrl: './passenger.component.html',
   styleUrls: ['./passenger.component.css'],
   animations: [
-    trigger('enterAnimmation', [
+    trigger('enterAnimation', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(60px)' }),
         animate(
@@ -62,12 +63,30 @@ export class PassengerComponent {
     'Z',
   ];
   rows: string[] = [];
-  cols: number[] = [1, 2, 3, 4, 5, 6];
+  cols: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   cost: number = 0;
 
   //temp
   currentseat: string = '';
 
+  flightObj: Flight = {
+    arraiavalAirportCode: 'MlA',
+    arriavalAirportName: 'Mala Airport',
+    arrivalCity: 'Maldives',
+    arrivalDate: '2023-05-28T00:00:00',
+    arrivalTime: '2023-05-28T19:30:37.479',
+    basePrice: 20940,
+    departureAirportCode: 'GHA',
+    departureAirportName: 'Great HYD Airport',
+    departureCity: 'Hyderabad',
+    departureDate: '2023-05-27T00:00:00',
+    departureTime: '2023-05-27T18:30:00.479',
+    flight_Name: 'IndiNo420',
+    flight_code: 'In420',
+    id: 4,
+    isrunning: true,
+    totalNoofseats: 120,
+  };
   selectedSeats: string[] = [];
 
   constructor(
@@ -76,10 +95,12 @@ export class PassengerComponent {
     private userservice: UserService,
     private toastr: ToastrService
   ) {
-    this.userservice.getselectedflight().subscribe((res) => {
-      this.selectedflight = res;
-      console.log(res);
-    });
+    // this.userservice.getselectedflight().subscribe((res) => {
+    //   this.selectedflight = res;
+    //   console.log(res);
+    // });
+
+    this.selectedflight = this.flightObj;
     this.getPassengers();
     this.seatselection();
   }
@@ -92,10 +113,59 @@ export class PassengerComponent {
     gender: this.builder.control('', Validators.required),
     email: this.builder.control('', Validators.required),
     phonenumber: this.builder.control('', Validators.required),
-    allocatedSeat: 'ran1',
+    allocatedSeat: '',
     bookingId: 0,
   });
   //#endregion
+
+  // arraiavalAirportCode
+  // :
+  // "MlA"
+  // arriavalAirportName
+  // :
+  // "Mala Airport"
+  // arrivalCity
+  // :
+  // "Maldives"
+  // arrivalDate
+  // :
+  // "2023-05-28T00:00:00"
+  // arrivalTime
+  // :
+  // "2023-05-28T19:30:37.479"
+  // basePrice
+  // :
+  // 20940
+  // departureAirportCode
+  // :
+  // "GHA"
+  // departureAirportName
+  // :
+  // "Great HYD Airport"
+  // departureCity
+  // :
+  // "Hyderabad"
+  // departureDate
+  // :
+  // "2023-05-27T00:00:00"
+  // departureTime
+  // :
+  // "2023-05-27T18:30:00.479"
+  // flight_Name
+  // :
+  // "IndiNo420"
+  // flight_code
+  // :
+  // "In420"
+  // id
+  // :
+  // 4
+  // isrunning
+  // :
+  // true
+  // totalNoofseats
+  // :
+  // 120
 
   ////fuction to convert booking id to number
   //#region  convert to number
@@ -198,7 +268,7 @@ export class PassengerComponent {
     }
 
     let val: number = this.selectedflight.totalNoofseats;
-    for (let i = 1; i < val / 6; i++) {
+    for (let i = 1; i < val / 10; i++) {
       this.rows.push(this.rowNames[i]);
     }
   }
