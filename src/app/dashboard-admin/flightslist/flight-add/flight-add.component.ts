@@ -7,24 +7,25 @@ import { ToastrService } from 'ngx-toastr';
 import { Flight } from 'src/app/Models/Flight';
 import { AdminService } from 'src/app/services/admin.service';
 
-
 @Component({
   selector: 'app-flight-add',
   templateUrl: './flight-add.component.html',
   styleUrls: ['./flight-add.component.css'],
-  providers:[DatePipe]
+  providers: [DatePipe],
 })
 export class FlightAddComponent {
-
   flightForm!: FormGroup;
 
-  constructor(private builder:FormBuilder,private adminservice:AdminService,private toastr:ToastrService,private datePipe:DatePipe,private dialog:MatDialog,private route:Router)
-  {
+  constructor(
+    private builder: FormBuilder,
+    private adminservice: AdminService,
+    private toastr: ToastrService,
+    private datePipe: DatePipe,
+    private dialog: MatDialog,
+    private route: Router
+  ) {}
 
-  }
-
-
-flights:Flight[] = [];
+  flights: Flight[] = [];
 
   // AddFlightForm = this.builder.group({
   //   flight_Name: this.builder.control('', Validators.required),
@@ -48,7 +49,7 @@ flights:Flight[] = [];
     this.createForm();
   }
 
-   today = new Date().toISOString().split('T')[0];
+  today = new Date().toISOString().split('T')[0];
 
   createForm() {
     this.flightForm = this.builder.group({
@@ -66,30 +67,24 @@ flights:Flight[] = [];
       ArrivalTime: ['', Validators.required],
       BasePrice: ['', Validators.required],
       TotalNoofseats: ['', Validators.required],
-      Isrunning: [true, Validators.required]
+      Isrunning: [true, Validators.required],
     });
   }
 
+  onFlightAdd() {
+    if (this.flightForm.valid) {
+      debugger;
+      console.log(this.flightForm.value);
 
-
-  onFlightAdd()
-  {
-
-    if(this.flightForm.valid)
-    {
-      debugger
-      console.log(this.flightForm.value)
-   
       //
       const editdepartureTime = this.flightForm.value.DepartureTime.split(':');
       const departureTime = new Date();
       departureTime.setUTCHours(+editdepartureTime[0], +editdepartureTime[1]);
-  
-    
+
       const editarrivalTime = this.flightForm.value.ArrivalTime.split(':');
       const arrivalTime = new Date();
       arrivalTime.setUTCHours(+editarrivalTime[0], +editarrivalTime[1]);
-    
+
       const flightData = {
         Flight_Name: this.flightForm.value.Flight_Name,
         Flight_code: this.flightForm.value.Flight_code,
@@ -105,28 +100,26 @@ flights:Flight[] = [];
         ArrivalTime: arrivalTime.toISOString(),
         BasePrice: this.flightForm.value.BasePrice,
         TotalNoofseats: this.flightForm.value.TotalNoofseats,
-        Isrunning: this.flightForm.value.Isrunning
+        Isrunning: this.flightForm.value.Isrunning,
       };
-    
+
       //
-      debugger
+      debugger;
       this.adminservice.AddFlight(flightData).subscribe((res) => {
-       debugger
-        if(!res.success)
-        {
+        debugger;
+        if (!res.success) {
           this.toastr.warning(res.message);
         }
         this.flights = res.data;
-        this.toastr.success(res.message,"Wow!")
-        
-        this.dialog.closeAll()
-      })
-     
+        this.toastr.success(res.message, 'Wow!');
+
+        this.dialog.closeAll();
+      });
+    } else {
+      debugger;
+      this.toastr.toastrConfig.closeButton = true;
+      this.toastr.warning('Entered data is invalid');
     }
-    debugger
-    this.toastr.toastrConfig.closeButton = true;
-    this.toastr.warning("Entered data is invalid");
-   
   }
 
   // "flightId": 0,

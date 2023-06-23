@@ -23,11 +23,11 @@
         class="action-button"
         (click)="flightandpassengerinfo(booking.id)"
       >
-        See flight and Passengers info
+        See flight,Passengers and Paymnet info
       </button>
-      <button class="action-button" (click)="paymentinfo(booking.id)">
+      <!-- <button class="action-button" (click)="paymentinfo(booking.id)">
         See Payment Info
-      </button>
+      </button> -->
     </div>
   </div>
 </div>
@@ -53,6 +53,66 @@ flightId:string = ""; -->
   </div>
 </div>
 
+<div class="passengerlistContainer" *ngIf="displaypassengerdetail">
+  <div class="passengerlist">
+    <div class="passengercard" *ngFor="let item of passengers">
+      <!-- <div class="cardtitle">{{ item.allocatedSeat }}</div> -->
+      <div class="cardcontent">
+        <h2>Name: {{ item.firstName }} {{ item.lastName }}</h2>
+        <p>Ph.No: {{ item.phoneNumber }}</p>
+        <p>Gender: {{ item.gender }}</p>
+        <p>Age: {{ item.age }}</p>
+        <p class="email">Email: {{ item.email }}</p>
+        <p>
+          Seat :<strong>{{ item.allocatedSeat }}</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-card class="flight-card" *ngIf="displayflightdetail">
+  <div class="flight-header">
+    <div class="flight-details">
+      <div class="flight-name">
+        {{ flight.flight_Name }} {{ flight.flight_code }}
+      </div>
+      <div class="airport-details">
+        {{ flight.departureAirportName }} ({{ flight.departureAirportCode }}) -
+        {{ flight.arriavalAirportName }} ({{ flight.arraiavalAirportCode }})
+      </div>
+      <div class="price">{{ flight.basePrice | currency : "₹" }}</div>
+    </div>
+    <div class="flightseatscount">Seats:{{ flight.totalNoofseats }}</div>
+  </div>
+  <div class="flight-schedule">
+    <div class="scheduleitem">
+      <div class="schedulelabel">
+        From: <strong>{{ flight.departureCity }}</strong>
+      </div>
+      <div class="scheduledate">
+        {{ flight.departureDate | date : "yyyy-MM-dd" }}
+      </div>
+      <div class="scheduletime">
+        {{ flight.departureTime | date : "HH:mm" }}
+      </div>
+    </div>
+    <div class="spacer">
+      <mat-icon class="flighticon">flight </mat-icon>
+    </div>
+    <div class="scheduleitem">
+      <div class="schedulelabel">
+        To: <strong>{{ flight.arrivalCity }}</strong>
+      </div>
+      <div class="scheduledate">
+        {{ flight.arrivalDate | date : "yyyy-MM-dd" }}
+      </div>
+      <div class="scheduletime">
+        {{ flight.arrivalTime | date : "HH:mm" }}
+      </div>
+    </div>
+  </div>
+</mat-card>
 <!-- booking
 : 
 null

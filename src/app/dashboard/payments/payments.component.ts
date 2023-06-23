@@ -66,7 +66,7 @@ export class PaymentsComponent {
   }
 
   calculatetotalamount() {
-    this.ptax = (this.cost / 100) * 2.25;
+    this.ptax = (this.cost / 100) * 0.55;
     this.gst = (this.cost / 100) * 4.86;
     this.cardtax = (this.cost / 100) * 1.24;
 

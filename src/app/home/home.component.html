@@ -1,39 +1,40 @@
 <!-- Toolbar -->
-<div class="background">
-  <div class="homecontainer">
-    <div class="toolbar" role="banner">
-      <span
-        ><a mat-button routerLink="/home"
-          ><h2 style="font-style: italic">BestWays</h2>
-          <mat-icon>flight</mat-icon></a
-        >
-      </span>
-      <div class="spacer"></div>
-      <a mat-button routerLink="/home">Home <mat-icon>home</mat-icon></a>
-      <a mat-button routerLink="booking"
-        >Booking <mat-icon>booking</mat-icon></a
-      >
-      <a mat-button routerLink="login" title="Login"
-        >Login<mat-icon>login</mat-icon>
-      </a>
-      <a mat-button routerLink="register" title="Register">
-        Register<mat-icon>app_registration</mat-icon>
-      </a>
-    </div>
+<!-- <div class="background"> -->
+<!-- <div class="homecontainer"> -->
+<div class="toolbar">
+  <span
+    ><a mat-button
+      ><h2 style="font-style: italic">BestWays</h2>
+      <mat-icon>flight</mat-icon></a
+    >
+  </span>
+  <div class="spacer"></div>
+  <!-- <a mat-button routerLink="/home">Home <mat-icon>home</mat-icon></a> -->
+  <a mat-button routerLink="booking">Booking <mat-icon>booking</mat-icon></a>
+  <a mat-button routerLink="login" title="Login"
+    >Login<mat-icon>login</mat-icon>
+  </a>
+  <a mat-button routerLink="register" title="Register">
+    Register<mat-icon>app_registration</mat-icon>
+  </a>
+</div>
 
-    <div class="content">
-      <div class="title">
-        <h1>BestWays</h1>
-      </div>
-    </div>
-
-    <div class="container">
-      <router-outlet></router-outlet>
+<div class="containerroute">
+  <div class="content">
+    <div class="title">
+      <h1>BestWays</h1>
     </div>
   </div>
-
-  <app-footer></app-footer>
+  <div class="outletrouter">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+<!-- </div> -->
+
+<footer>
+  <app-footer></app-footer>
+</footer>
+<!-- </div> -->
 
 <!-- <span><a mat-button routerLink="/home"><h2 style="font-style: italic;">BestWays</h2><mat-icon>flight</mat-icon></a></span>
 <div class="spacer"></div>

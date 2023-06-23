@@ -53,7 +53,7 @@
       [cols]="cols.length"
       class="seats"
       style="padding-bottom: 0px"
-      rowHeight="1:0.4"
+      rowHeight="1:0.5"
     >
       <div *ngFor="let row of rows">
         <div *ngFor="let col of cols; let i = index">
@@ -77,119 +77,108 @@
   <div class="row">
     <div class="selected-seats">
       <h2>Selected Seats</h2>
+      <!-- <div class="seatsitemcontainer"> -->
       <div *ngFor="let seat of selectedSeats">
         <div class="seatitem">
           <div class="seatname">{{ seat }}</div>
           <div class="seatbutton">
-            <button (click)="addPassengerOption(seat)" mat-raised-button>
+            <button
+              (click)="addPassengerOption(seat)"
+              class="seatbuttonitem"
+              mat-raised-button
+            >
               Add Passenger
             </button>
           </div>
         </div>
       </div>
+      <!-- </div> -->
     </div>
   </div>
   <div class="row">
-    <div class="passenger-form" *ngIf="passengerAddOption">
-      <mat-card>
-        <div class="title">
-          <h1>Passenger for seat: {{ currentseat }}</h1>
+    <div class="col-md-4">
+      <div class="passengerform" *ngIf="passengerAddOption">
+        <!-- <mat-card> -->
+        <div class="formtitle">
+          <div class="passengerseat">
+            <h2>Passenger for seat: {{ currentseat }}</h2>
+          </div>
           <!-- <h2>Passenger</h2> -->
-          <a class="close-icon" (click)="OnCancelPassengerAdd()"
-            ><mat-icon>close</mat-icon></a
-          >
+          <div class="clossbutton">
+            <mat-icon (click)="OnCancelPassengerAdd()">close</mat-icon>
+          </div>
         </div>
         <form
-          class="example-form"
+          class="formcontainer"
           [formGroup]="AddPassengerForm"
           (ngSubmit)="AddPassenger()"
         >
-          <div class="input-group">
-            <mat-form-field class="input-field">
+          <div class="names">
+            <mat-form-field>
               <mat-label>First Name</mat-label>
               <input matInput type="text" formControlName="firstName" />
             </mat-form-field>
-            <mat-form-field class="input-field">
+            <mat-form-field>
               <mat-label>Last Name</mat-label>
               <input matInput type="text" formControlName="lastName" />
             </mat-form-field>
           </div>
-          <div class="input-group">
-            <mat-form-field class="input-field">
+          <div class="agegender">
+            <mat-form-field>
               <mat-label>Age</mat-label>
               <input matInput type="number" formControlName="age" />
             </mat-form-field>
-            <mat-form-field class="input-field">
+            <mat-form-field>
               <mat-label>Gender</mat-label>
               <input matInput type="text" formControlName="gender" />
             </mat-form-field>
           </div>
-          <div class="input-group">
-            <mat-form-field class="input-field">
+          <div class="contactdetails">
+            <mat-form-field>
               <mat-label>Email</mat-label>
               <input matInput type="email" formControlName="email" />
             </mat-form-field>
-            <mat-form-field class="input-field">
+            <mat-form-field>
               <mat-label>Phone number</mat-label>
               <input matInput type="tel" formControlName="phonenumber" />
             </mat-form-field>
           </div>
-          <div class="submit-container">
-            <button mat-raised-button color="primary" class="passenger-submit">
+          <div class="submitcontainer">
+            <button mat-raised-button color="primary" class="passengersubmit">
               <mat-icon>person</mat-icon>
               <mat-hint>Add Passenger</mat-hint>
             </button>
           </div>
         </form>
-      </mat-card>
+        <!-- </mat-card> -->
+      </div>
+    </div>
+
+    <div class="col-md-8 passengerlistContainer">
+      <div class="passengerlist" *ngIf="passengers.length > 0">
+        <div class="passengercard" *ngFor="let item of passengers">
+          <a class="closeicon" (click)="OnRemovePassenger(item.id)">
+            <mat-icon>close</mat-icon>
+          </a>
+          <!-- <div class="cardtitle">{{ item.allocatedSeat }}</div> -->
+          <div class="cardcontent">
+            <h2>Name: {{ item.firstName }} {{ item.lastName }}</h2>
+            <p>Ph.No: {{ item.phoneNumber }}</p>
+            <p>Gender: {{ item.gender }}</p>
+            <p>Age: {{ item.age }}</p>
+            <p class="email">Email: {{ item.email }}</p>
+            <p>
+              Seat :<strong>{{ item.allocatedSeat }}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="payments" *ngIf="passengers.length > 0">
-  <button mat-raised-button (click)="payments()">
+  <button mat-raised-button (click)="payments()" class="paymentbutton">
     Cost = {{ cost | currency : "₹" }}, Tap To Pay.
   </button>
 </div>
-<div class="passenger-list" *ngIf="passengers.length > 0">
-  <div class="passenger-card" *ngFor="let item of passengers">
-    <a class="close-icon" (click)="OnRemovePassenger(item.id)">
-      <mat-icon>close</mat-icon>
-    </a>
-    <div class="card-title">{{ item.allocatedSeat }}</div>
-    <div class="card-content">
-      <h1>{{ item.firstName }} {{ item.lastName }}</h1>
-      <p>{{ item.phoneNumber }}</p>
-      <p>{{ item.gender }}</p>
-      <p>{{ item.age }}</p>
-      <p class="email">{{ item.email }}</p>
-      <p>{{ item.allocatedSeat }}</p>
-    </div>
-  </div>
-</div>
-
-<div
-  class="payments"
-  *ngIf="passengers.length > 0"
-  style="float: right; margin-right: 20px"
->
-  <button mat-raised-button (click)="payments()">
-    Cost = {{ cost | currency : "₹" }}, Tap To Pay.
-  </button>
-</div>
-<!-- <div class="passenger-list" *ngIf="passengers.length > 0">
-  <div class="passenger-card" *ngFor="let item of passengers">
-    <a class="close-icon" (click)="OnRemovePassenger(item.id)">
-      <mat-icon>close</mat-icon>
-    </a>
-    <div class="card-title">{{item.allocatedSeat}}</div>
-    <div class="card-content">
-      <h1>{{item.firstName}} {{item.lastName}}</h1>
-      <p>{{item.phoneNumber}}</p>
-      <p>{{item.gender}}</p>
-      <p>{{item.age}}</p>
-      <p class="email">{{item.email}}</p>
-      <p>{{item.allocatedSeat}}</p>
-    </div>
-  </div>
-</div> -->

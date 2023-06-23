@@ -1,76 +1,112 @@
+.bookingcontainer {
+  margin-bottom: 20px;
+}
+
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /* background-color: #777; */
+  padding-bottom: 20px;
+}
 .flight-card {
-    width: 70%;
-    height: 10%;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    margin-left: 15%;
-    background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .flight-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top-right-radius: 15px;
-    padding: 16px;
-    background-color: #dfdfdf;
-  }
-  
-  .flight-details {
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .flight-name {
-    font-size: 18px;
-  }
-  
-  .airport-details {
-    font-size: 14px;
-    margin-top: 4px;
-    color: #777;
-  }
-  
-  .price {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .flight-schedule {
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-  }
-  
-  .schedule-item {
-    text-align: center;
-  }
-  
-  .schedule-label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 4px;
-    color: #333;
-  }
-  
-  .schedule-date {
-    font-size: 14px;
-    color: #777;
-  }
-  
-  .schedule-time {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .select-flight-button {
-    font-size: 14px;
-    background-color: #ff5722;
-    color: #fff;
-    border-radius: 4px;
-    padding: 8px 16px;
-  }
-  
+  width: 70%;
+  height: 10%;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  margin-left: 15%;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  transition: all ease-in-out 100ms;
+}
+
+.flight-card:hover {
+  box-shadow: -10px 10px 5px rgba(120, 120, 120, 0.4);
+  margin-left: 13%;
+  width: 74%;
+}
+
+.flight-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-right-radius: 15px;
+  padding: 16px;
+  background-color: #dfdfdf;
+}
+
+.flight-details {
+  font-weight: bold;
+  color: #333;
+}
+
+.flight-name {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.airport-details {
+  font-size: 16px;
+  /* margin-top: 4px; */
+  /* color: #777; */
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.flight-schedule {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.schedule-item {
+  text-align: center;
+}
+
+.schedule-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.schedule-date {
+  font-size: 14px;
+  color: #777;
+}
+
+.schedule-time {
+  font-size: 16px;
+  color: #333;
+}
+
+.select-flight-button {
+  font-size: 14px;
+  width: 100%;
+  background-image: linear-gradient(
+    90deg,
+    rgb(16, 16, 142, 0.6),
+    rgb(53, 203, 248, 0.6)
+  );
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 16px;
+  transition: all ease-in-out is;
+}
+
+.select-flight-button:hover {
+  background-image: linear-gradient(
+    90deg,
+    rgba(233, 13, 204, 0.6),
+    rgba(19, 17, 138, 0.6)
+  );
+}
+
+.flighticon {
+  transform: rotate(90deg);
+}

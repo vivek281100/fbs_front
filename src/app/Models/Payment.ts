@@ -6,4 +6,5 @@ export class Payment {
   paymentStatus!: boolean;
 
   bookingid!: number;
+  payment_DateTime!: Date;
 }

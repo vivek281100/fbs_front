@@ -67,6 +67,22 @@ export class UserService {
   }
   //#endregion
 
+  // get flight by booking id.
+  //#region  Get Flight By Booking Id
+  getflightbyBookingId(bid: number): Observable<any> {
+    let token = sessionStorage.getItem('Token');
+    let headobj = new HttpHeaders().set('Authorization', 'bearer ' + token);
+    let id = new HttpParams().set('id', bid);
+    return this.http.get(
+      'https://localhost:7102/api/Flight/getFlightByBookingid',
+      {
+        headers: headobj,
+        params: id,
+      }
+    );
+  }
+  //#endregion
+
   //#region saving the selected flight
   private selectedflight: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
@@ -190,6 +206,7 @@ export class UserService {
   //#endregion
 
   //get bookings by userId
+  //#region  bookings by user id
   getbookings(): Observable<any> {
     let token = sessionStorage.getItem('Token');
     let headObj = new HttpHeaders().set('Authorization', 'bearer ' + token);
@@ -199,8 +216,10 @@ export class UserService {
       { headers: headObj }
     );
   }
+  //#endregion
 
   //update booking status
+  //#region update booking status
   updatebookingstatus(id: number): Observable<any> {
     let token = sessionStorage.getItem('Token');
     let headObj = new HttpHeaders().set('Authorization', 'bearer ' + token);
@@ -212,9 +231,10 @@ export class UserService {
       { headers: headObj }
     );
   }
+  //#endregion
 
   //get payment by booking id.
-
+  //#region get payments by booking id
   paymentbybookingid(bid: number): Observable<any> {
     let token = sessionStorage.getItem('Token');
     let headObj = new HttpHeaders().set('Authorization', 'bearer ' + token);
@@ -225,4 +245,5 @@ export class UserService {
       { headers: headObj, params: id }
     );
   }
+  //#endregion
 }

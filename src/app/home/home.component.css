@@ -6,7 +6,7 @@ p {
   /* position: relative; */
   width: 100%;
   height: 100%;
-  background-image: url("https://c.pxhere.com/photos/a3/d3/aeroplane_aircraft_airplane_aviation_clouds_daylight_flight_flying-1551067.jpg!d");
+  /* background-image: url("https://c.pxhere.com/photos/a3/d3/aeroplane_aircraft_airplane_aviation_clouds_daylight_flight_flying-1551067.jpg!d"); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
   /* z-index: -2; */
@@ -14,7 +14,8 @@ p {
 
 .homecontainer {
   height: 100%;
-  z-index: 1;
+  width: 100%;
+  /* z-index: 1; */
 }
 .title {
   text-align: center;
@@ -37,11 +38,11 @@ p {
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 70px;
   display: flex;
   align-items: center;
-  background-color: #000000;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   font-weight: 600;
 }
 
@@ -54,10 +55,24 @@ p {
   align-items: center;
 }
 
-.container {
-  margin-top: 20px;
+.containerroute {
+  margin: 0px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  /* margin-top: 20px; */
+  background: linear-gradient(
+    150deg,
+    rgb(35, 35, 122, 0.7) 30%,
+    rgba(18, 193, 187)
+  );
+  min-height: 550px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
-.container h1 {
+.containerroute h1 {
   font-family: "Playfair Display", serif;
   font-weight: bold;
   font-size: xx-large;
@@ -66,7 +81,7 @@ p {
 a,
 a:visited,
 a:hover {
-  color: #fffefe;
+  color: #020202;
   text-decoration: none;
   margin-left: 3px;
 }
@@ -75,9 +90,26 @@ a:hover {
   color: #f39a0b;
 }
 
+footer {
+  margin-top: 30px;
+}
+
 @media only screen and (max-width: 680px) {
-  .background {
-    background-color: skyblue;
-    background-image: none;
+  .containerroute {
+    margin: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* margin-top: 20px; */
+    background: linear-gradient(
+      90deg,
+      rgb(35, 35, 122, 0.5) 80%,
+      rgba(18, 117, 193, 0.5)
+    );
+    min-height: 550px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 }

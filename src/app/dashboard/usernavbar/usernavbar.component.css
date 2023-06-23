@@ -1,33 +1,36 @@
+.navbar {
+  background: linear-gradient(90deg, rgb(11, 5, 130), rgb(23, 214, 221));
+  height: 40px;
+}
 
-.navlinks{
-    display: inline-block;
-    width: 88%;
+.navlinks {
+  display: inline-block;
+  width: 88%;
+  margin-left: 2%;
+  color: white;
+}
+.links {
+  display: inline;
+  width: 70%;
+}
+a:hover {
+  color: coral;
+}
+.logbutton {
+  float: right;
+}
+
+@media only screen and (max-width: 754px) {
+  .linklist {
+    /* background-color: yellowgreen; */
+    width: 100%;
     margin-left: 2%;
-    color:white
-}
-.links{
-    display:inline;
-    width: 70%;
-}
-a:hover{
-    color: darkorange;
-}
-.logbutton{
+    display: flex;
+  }
+  .links {
+    display: none;
+  }
+  .logbutton {
     float: right;
+  }
 }
-
-@media only screen and (max-width: 754px){
-    .linklist{
-        /* background-color: yellowgreen; */
-        width: 100%;
-        margin-left: 2%;
-        display: flex;
-    }
-    .links{
-        display: none;
-    }
-    .logbutton{
-        float:right;
-    
-    }
-    }

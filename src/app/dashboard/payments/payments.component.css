@@ -1,17 +1,39 @@
 .passengerContainer {
-  background-color: rgb(161, 237, 237, 0.25);
+  background: linear-gradient(
+    0deg,
+    transparent 20%,
+    rgb(14, 221, 248, 0.2) 100%
+  );
   padding: 10px;
   /* margin: 10px 10px; */
-  border-radius: 15px;
+  border-radius: 10px;
+  /* min-width: 400px; */
+  height: 330px;
+  overflow-y: scroll;
+}
+/* passengercontainer scrollbar  */
+.passengerContainer::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+  background-color: transparent;
 }
 
-.card-container {
-  /* text-align: center; */
-  margin-bottom: 20px;
-  margin-left: 20px;
+.passengerContainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgb(45, 33, 176) 15%,
+    rgb(24, 251, 255) 90%,
+    transparent 100%
+  );
 }
 
-.card-title {
+.container {
+  /* background-color: tomato; */
+  padding: 0;
+}
+
+.card-container .card-title {
   font-size: 24px;
   font-weight: 550;
   color: #333;
@@ -20,17 +42,20 @@
 .passenger-card {
   display: flex;
   align-items: center;
-  /* background-color: rgb(4, 216, 195); */
-  border-radius: 15px;
+  /* background-color: rgba(233, 255, 253, 0.4); */
+  border-radius: 10px;
+  border-bottom-right-radius: 2px;
   padding: 10px;
+  background-color: white;
   margin-bottom: 10px;
   box-shadow: 0px 4px 5px rgba(171, 171, 171, 0.5);
+  overflow: scroll;
 }
 
 .passenger-details {
   flex: 1;
   width: 90%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .passenger-name {
@@ -65,42 +90,118 @@
 .cost {
   /* display: flex; */
   align-items: center;
-  /* background-color: #bde7fac3; */
-  background-color: rgb(161, 237, 237, 0.25);
+  /* background-color: #921245c3; */
+  /* background-color: rgb(161, 237, 237, 0.25); */
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
-  box-shadow: 0px 4px 5px rgba(153, 152, 152, 0.5);
+  /* border-style: solid; */
+  /* box-shadow: 0px 4px 5px rgba(153, 152, 152, 0.5); */
 }
 
 .invoice {
   align-items: center;
   /* background-color: #bde7fac3; */
-  background-color: rgb(161, 237, 237, 0.25);
+  background: linear-gradient(180deg, transparent 20%, rgb(14, 221, 248, 0.2));
   border-radius: 5px;
   padding: 10px;
   margin: 10px 0px;
-  box-shadow: 0px 4px 5px rgba(146, 146, 146, 0.5);
+  border-radius: 10px;
+  /* border-style: solid */
+  /* box-shadow: 0px 4px 5px rgba(146, 146, 146, 0.5); */
 }
 .payment {
   /* background-color: aquamarine; */
-  background-color: rgb(161, 237, 237, 0.25);
+  /* background-color: rgb(161, 237, 237, 0.25); */
   padding-top: 20px;
-  min-height: 640px;
+  min-height: 600px;
   border-radius: 15px;
   margin-left: 10px;
-  overflow: hidden;
-  box-shadow: 0px 4px 5px rgb(161, 160, 160, 0.45);
-}
-mat-form-field {
-  height: 70%;
+  /* border-style: solid; */
+
+  background: linear-gradient(0deg, transparent 20%, rgb(14, 221, 248, 0.2));
+  /* overflow: hidden; */
+  /* box-shadow: 0px 4px 5px rgb(161, 160, 160, 0.45); */
 }
 
 .cardpayment {
   margin-top: 10px;
-  margin-left: 15%;
+  /* width: max-content; */
+  margin-left: 10%;
 }
-@media only screen and (max-width: 770px) {
+
+.card-details {
+  height: 360px;
+}
+
+.upipayment {
+  height: 360px;
+}
+
+.cardnumber {
+  width: 10px;
+}
+
+.input {
+  width: 90%;
+}
+
+.mattabcontainer {
+  background-color: #fbfafa;
+  border-radius: 10px;
+  height: 100%;
+  /* padding: 5px; */
+}
+
+.total-amount {
+  text-align: center;
+}
+.paymentsubmitbutton {
+  width: 90%;
+  background: linear-gradient(
+    90deg,
+    rgba(21, 21, 97, 0.6) 40%,
+    rgb(14, 221, 248, 0.6)
+  );
+}
+
+.paymentsubmitbutton:hover {
+  color: white;
+  background: linear-gradient(
+    90deg,
+    rgba(121, 49, 134, 0.6) 60%,
+    rgb(48, 6, 173, 0.6)
+  );
+}
+.amountinfo {
+  margin-bottom: 1px;
+  padding-bottom: 1px;
+}
+.taxdesc {
+  margin-top: 1px;
+  padding-top: 1px;
+  font-weight: 250;
+  font-size: 12px;
+}
+
+/* ///scroolbar/// */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(45, 33, 176) 10%,
+    rgb(24, 251, 255) 90%,
+    transparent 100%
+  );
+}
+
+@media only screen and (max-width: 860px) {
   .passenger-card {
     display: flex;
     align-items: center;
@@ -112,7 +213,7 @@ mat-form-field {
   }
 
   .passenger-info {
-    font-size: 10px;
+    font-size: 14px;
     /* color: #a19f9f; */
     margin: 0;
     padding-left: 0;
@@ -123,7 +224,7 @@ mat-form-field {
   .passenger-details {
     flex: 1;
     width: 90%;
-    overflow-x: hidden;
+    overflow-x: scroll;
   }
 
   .passenger-info li {

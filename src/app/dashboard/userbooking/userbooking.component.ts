@@ -7,7 +7,9 @@ import {
 } from '@angular/animations';
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Booking } from 'src/app/Models/Booking';
+import { BookingListuser } from 'src/app/Models/Booking';
+import { Flight } from 'src/app/Models/Flight';
+import { passenger } from 'src/app/Models/Passenger';
 import { Payment } from 'src/app/Models/Payment';
 import { UserService } from 'src/app/services/user.service';
 
@@ -40,9 +42,14 @@ export class UserbookingComponent {
    *
    */
 
-  bookings: Booking[] = [];
-  payment!: any;
+  bookings: BookingListuser[] = [];
+  payment!: Payment;
   displaypayment: boolean = false;
+  flight!: Flight;
+  passengers!: passenger[];
+  displayflightdetail = false;
+  displaypassengerdetail = false;
+
   constructor(private userservice: UserService, private toastr: ToastrService) {
     this.getbookingsbyuser();
   }
@@ -70,6 +77,39 @@ export class UserbookingComponent {
     });
   }
 
+  //#region  get flight,passengers and payment by booking id
+  flightandpassengerinfo(id: number) {
+    if (id == null) {
+      this.toastr.warning('snap! somthings wrong. Try again after sometime!');
+    } else {
+      this.getflightbybookingid(id);
+      this.getpassengersbybookingid(id);
+      this.paymentinfo(id);
+    }
+  }
+
+  getflightbybookingid(id: number) {
+    this.userservice.getflightbyBookingId(id).subscribe((res) => {
+      if (res.success) {
+        this.flight = res.data;
+        this.displayflightdetail = true;
+      } else {
+        this.toastr.warning(res.message);
+      }
+    });
+  }
+
+  getpassengersbybookingid(id: number) {
+    this.userservice.getpassengersbybookingid(id).subscribe((res) => {
+      if (res.success) {
+        this.passengers = res.data;
+        this.displaypassengerdetail = true;
+      } else {
+        this.toastr.warning(res.message);
+      }
+    });
+  }
+
   paymentinfo(id: number) {
     // this.displaypayment = true;
     this.userservice.paymentbybookingid(id).subscribe((res) => {
@@ -84,6 +124,5 @@ export class UserbookingComponent {
       }
     });
   }
-
-  flightandpassengerinfo(id: number) {}
+  //#endregion
 }

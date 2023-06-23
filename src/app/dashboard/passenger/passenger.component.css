@@ -100,20 +100,51 @@
 .seatscontainer {
   /* background-color: rgb(175, 175, 175); */
   box-shadow: 0 0 4px rgb(185, 185, 185);
+  align-self: center;
   margin-top: 20px;
   border-radius: 10px;
+  width: 500px;
+  max-height: 500px;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
+  overflow-y: scroll;
+  scroll-margin-left: 0;
+  scrollbar-color: gray;
+  margin-left: 30%;
+}
+
+.seatscontainer::-webkit-scrollbar {
+  width: 7px;
+  border: none;
+}
+
+/* Track */
+.seatscontainer::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 2px grey; */
+  border-radius: 15px;
+}
+
+/* Handle */
+.seatscontainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(47, 111, 230), rgb(82, 208, 231));
+  width: 5px;
+  border-radius: 10px;
+}
+.seatscontainer::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgb(244, 42, 247), rgb(20, 116, 218));
+  width: 5px;
+  border-radius: 10px;
 }
 
 .seats {
   /* background-color: aqua; */
-  /* background-color: rgb(252, 252, 252); */
+  background-color: rgb(252, 252, 252);
   border-radius: 10px;
   box-shadow: 0 0 5px rgb(212, 211, 211, 0.5);
   padding-top: 5px;
   padding-bottom: 10px;
+  opacity: 1;
 }
 
 mat-grid-tile {
@@ -122,6 +153,7 @@ mat-grid-tile {
 }
 .checkbox {
   /* background-color: rgb(216, 216, 216); */
+  width: 70px;
   padding-right: 2px;
   border-radius: 10px;
   transition: all ease-in-out 500ms;
@@ -137,10 +169,13 @@ mat-grid-tile {
 
 .selected-seats {
   display: flex;
+  /* overflow: scroll; */
+  flex-wrap: wrap;
   gap: 1vw;
   margin-top: 20px;
   min-height: 10vh;
   padding: 10px;
+  margin-bottom: 5vh;
   /* border-style: solid; */
   /* border-color: rgb(102, 102, 102, 0.5); */
   box-shadow: 0 0 5px rgba(166, 166, 166, 0.7);
@@ -148,10 +183,182 @@ mat-grid-tile {
 .selected-seats h2 {
   position: relative;
   top: -25px;
-  background-color: white;
+  /* flex: none; */
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 0;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 0px 2px;
+}
+
+/* .seatsitemcontainer { */
+/* background-color: rgb(204, 203, 203); */
+/* } */
+
+.seatname {
+  text-align: center;
 }
 
 .seatitem {
+  /* flex: 1 0 300px; */
   background-color: rgb(219, 219, 219);
   padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0px 0px rgb(119, 119, 119, 0.3);
+  transition: all 100ms linear;
+}
+
+.seatitem:hover {
+  box-shadow: 0 5px 3px rgb(118, 118, 118, 0.4);
+}
+
+.seatbuttonitem {
+  background: linear-gradient(
+    90deg,
+    rgba(11, 15, 85, 0.6) 30%,
+    rgba(16, 221, 240, 0.4)
+  );
+}
+.seatbuttonitem:hover {
+  background: linear-gradient(
+    90deg,
+    rgb(107, 24, 152, 0.4) 60%,
+    rgb(11, 15, 85, 0.6)
+  );
+  color: white;
+}
+
+/* ///passenger/// */
+.passengerform {
+  /* background-color: yellowgreen; */
+  border-radius: 10px;
+}
+
+.formtitle {
+  background-color: skyblue;
+  display: flex;
+  gap: 5vw;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.passengerseat {
+  /* background-color: whitesmoke; */
+  width: 80%;
+  /* text-align: center; */
+  padding-left: 5px;
+  padding-top: 5px;
+}
+.clossbutton {
+  /* background-color: violet; */
+
+  /* align-content: center; */
+  max-width: 10%;
+  align-items: center;
+  /* float: right; */
+}
+
+.formcontainer {
+  padding: 10px;
+}
+
+.names {
+  /* background-color: turquoise; */
+  display: flex;
+  gap: 1vw;
+  /* flex-wrap: wrap; */
+}
+
+.agegender {
+  /* background-color: tomato; */
+  /* padding-left: 18%; */
+  display: flex;
+  gap: 1vw;
+  /* display: inline; */
+}
+
+.contactdetails {
+  /* background-color: teal; */
+  /* padding-left: 18%; */
+  display: flex;
+  gap: 1vw;
+}
+.passengersubmit {
+  /* background-color: blue; */
+  /* padding-left: 24%;
+   */
+  /* align-content: center; */
+  width: 100%;
+}
+
+/* ////displayadded passengers///// */
+.passengerlistContainer {
+  border-style: groove;
+  border-radius: 10px;
+}
+
+.passengerlist {
+  display: flex;
+  gap: 1vw;
+  flex-wrap: wrap;
+  /* background-color: aqua; */
+  padding: 10px;
+  /* padding-left: 10px; */
+}
+
+.passengercard {
+  width: 260px;
+  background-color: rgb(179, 177, 177, 0.4);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.closeicon {
+  float: right;
+  margin-left: 5px;
+  color: black;
+}
+
+.cardcontent {
+  /* background-color: rgb(168, 168, 168); */
+}
+.payments {
+  width: 100%;
+}
+.paymentbutton {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  background: linear-gradient(90deg, rgba(11, 15, 85) 30%, rgba(16, 221, 240));
+  transition: all 1000ms linear;
+}
+.paymentbutton:hover {
+  background: linear-gradient(90deg, rgb(107, 24, 152) 60%, rgb(11, 15, 85));
+}
+
+@media only screen and (max-width: 995px) {
+  .seatscontainer {
+    margin-left: 15%;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .seatscontainer {
+    margin-left: 4%;
+    overflow-x: scroll;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .seatscontainer {
+    width: 380px;
+    margin-left: 5px;
+    overflow-x: scroll;
+    padding: 2px;
+  }
+  .seats {
+    padding: 0;
+    margin: 0;
+  }
 }
