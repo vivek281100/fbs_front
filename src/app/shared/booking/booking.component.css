@@ -15,7 +15,7 @@
   transition: all ease-in-out 500ms;
 }
 
-.bookingcontainer:hover {
+.bookingcontainer {
   margin-top: 0;
   background-color: rgba(12, 12, 12, 0.2);
   color: white;

@@ -246,4 +246,16 @@ export class UserService {
     );
   }
   //#endregion
+
+  //#region get occupied seats by flight id
+  getoccupiedseatsbyflightid(fid: number): Observable<any> {
+    let token = sessionStorage.getItem('Token');
+    let headobj = new HttpHeaders().set('Authorization', 'bearer ' + token);
+    let id = new HttpParams().set('id', fid);
+    return this.http.get('https://localhost:7102/api/Flight/occuipedSeats', {
+      headers: headobj,
+      params: id,
+    });
+  }
+  //#endregion
 }

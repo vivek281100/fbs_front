@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -23,7 +23,7 @@ import { UserService } from 'src/app/services/user.service';
     ]),
   ],
 })
-export class PassengerComponent {
+export class PassengerComponent implements OnInit {
   /**
    *
    */
@@ -86,7 +86,9 @@ export class PassengerComponent {
   //   isrunning: true,
   //   totalNoofseats: 120,
   // };
+
   selectedSeats: string[] = [];
+  occupiedseatslist: string[] = [];
 
   constructor(
     private builder: FormBuilder,
@@ -106,6 +108,11 @@ export class PassengerComponent {
     this.calculateCost();
   }
 
+  ngOnInit() {
+    console.log('onitit called');
+    this.occupiedseats();
+  }
+
   //assign cost
   costAssign() {
     this.cost = 0;
@@ -114,6 +121,23 @@ export class PassengerComponent {
       this.cost = +temp;
     }
   }
+
+  // get occupied seats.
+  //#region get occupies seats
+  occupiedseats() {
+    this.userservice
+      .getoccupiedseatsbyflightid(this.selectedflight.id)
+      .subscribe((res) => {
+        console.log('seats' + res);
+        if (res.success) {
+          this.occupiedseatslist = res.data;
+          debugger;
+          console.log('seats' + this.occupiedseatslist);
+          debugger;
+        }
+      });
+  }
+  //#endregion
 
   //#region add passenger form
   AddPassengerForm = this.builder.group({
@@ -174,6 +198,7 @@ export class PassengerComponent {
   //#endregion
 
   //get passengers
+  //#region
   getPassengers() {
     let id: number | null = this.convertToNumberfromstring(
       sessionStorage.getItem('bookingid')
@@ -187,10 +212,10 @@ export class PassengerComponent {
     });
     this.calculateCost();
   }
+  //#endregion
 
   //to add pasenger.
   //#region  add passenger
-
   AddPassenger() {
     debugger;
     this.AddPassengerForm.value.bookingId = this.convertToNumberfromstring(
@@ -236,7 +261,11 @@ export class PassengerComponent {
   }
   //#endregion
 
+  //all seats functions
+  //#region  for seats functionality
+
   //seat selection after adding passengers
+  //#region  changes to be mode after selecting a seat
   seatselection() {
     this.seatselectionOption = !this.seatselectionOption;
 
@@ -249,8 +278,10 @@ export class PassengerComponent {
       this.rows.push(this.rowNames[i]);
     }
   }
+  //#endregion
 
   //selected seats to display.
+  //#region displaying selected seats
   onSeatSelectionChange(seat: string) {
     if (this.selectedSeats.includes(seat)) {
       this.selectedSeats = this.selectedSeats.filter((s) => s !== seat);
@@ -265,10 +296,38 @@ export class PassengerComponent {
       }
     }
   }
+  //#endregion
 
+  checkseatsoccupied(seat: string) {
+    if (this.occupiedseatslist.includes(seat)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isseatchecked(seat: string): boolean {
+    return this.occupiedseatslist.includes(seat);
+  }
+
+  isSeatOccupied(seat: string): boolean {
+    return this.occupiedseatslist.includes(seat);
+  }
+
+  isSelectedSeat(seat: string): boolean {
+    return this.selectedSeats.includes(seat);
+  }
+
+  getSeatLabel(seat: string): string {
+    if (this.checkseatsoccupied(seat)) {
+      return '🧑‍💼';
+    } else {
+      return seat;
+    }
+  }
   //disabling seats
   isSeatDisabled(seat: string) {
-    if (this.selectedSeats.length >= 6) {
+    if (this.selectedSeats.length >= 6 || this.checkseatsoccupied(seat)) {
       if (this.selectedSeats.includes(seat)) {
         return false;
       }
@@ -276,14 +335,18 @@ export class PassengerComponent {
     } else {
       return false;
     }
+    // return this.selectedSeats.length >= 6 || this.checkseatsoccupied(seat);
   }
 
-  //add passenger opiton
+  //#endregion
 
+  //add passenger opiton
+  //#region
   addPassengerOption(seat: string) {
     this.currentseat = seat;
     this.passengerAddOption = true;
   }
+  //#endregion
 
   //#region payments navigation
   payments() {

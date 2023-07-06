@@ -36,83 +36,97 @@
 status:boolean = true;
 bookingdatetime!:Date;
 flightId:string = ""; -->
-
-<div *ngIf="displaypayment">
-  <div class="paymentinfo" [@fadeanimation]>
-    <h4>payment info for booking id: {{ payment.bookingid }}</h4>
-    <p>
-      Mode of Payment: <strong> {{ payment.payment_Mode }}</strong>
-    </p>
-    <p>Status:{{ payment.paymentStatus }}</p>
-    <p>Paid Amount: {{ payment.total_Price | currency : "₹" }}</p>
-    <p>
-      Paid Date: {{ payment.payment_DateTime | date : "dd-MM-yyyy" }} Time:{{
-        payment.payment_DateTime | date : "HH-mm"
-      }}
-    </p>
+<div class="row detailscontainer">
+  <div *ngIf="displaypayment" class="col-md-3">
+    <div class="paymentinfo" [@fadeanimation]>
+      <h4>payment info for booking id: {{ payment.bookingid }}</h4>
+      <p>
+        Mode of Payment: <strong> {{ payment.payment_Mode }}</strong>
+      </p>
+      <p>Status:{{ payment.paymentStatus }}</p>
+      <p>Paid Amount: {{ payment.total_Price | currency : "₹" }}</p>
+      <p>
+        Paid Date: {{ payment.payment_DateTime | date : "dd-MM-yyyy" }} Time:{{
+          payment.payment_DateTime | date : "HH-mm"
+        }}
+      </p>
+    </div>
   </div>
-</div>
-
-<div class="passengerlistContainer" *ngIf="displaypassengerdetail">
-  <div class="passengerlist">
-    <div class="passengercard" *ngFor="let item of passengers">
-      <!-- <div class="cardtitle">{{ item.allocatedSeat }}</div> -->
-      <div class="cardcontent">
-        <h2>Name: {{ item.firstName }} {{ item.lastName }}</h2>
-        <p>Ph.No: {{ item.phoneNumber }}</p>
-        <p>Gender: {{ item.gender }}</p>
-        <p>Age: {{ item.age }}</p>
-        <p class="email">Email: {{ item.email }}</p>
+  <div class="col-md-5">
+    <div class="passengerlistContainer" *ngIf="displaypassengerdetail">
+      <div class="passengerlist">
+        <div class="passengercard" *ngFor="let item of passengers">
+          <!-- <div class="cardtitle">{{ item.allocatedSeat }}</div> -->
+          <div class="cardcontent">
+            <h2>Name: {{ item.firstName }} {{ item.lastName }}</h2>
+            <p>
+              Ph.No: {{ item.phoneNumber }}
+              <span>Gender: {{ item.gender }}</span>
+              <span>Age: {{ item.age }}</span>
+              <span class="email">Email: {{ item.email }}</span>
+              <span>
+                Seat :<strong>{{ item.allocatedSeat }}</strong>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <mat-card class="flight-card" *ngIf="displayflightdetail">
+      <div class="flight-header">
+        <div class="flight-details">
+          <div class="flight-name">
+            {{ flight.flight_Name }} {{ flight.flight_code }}
+          </div>
+          <div class="airport-details">
+            {{ flight.departureAirportName }} ({{
+              flight.departureAirportCode
+            }}) - {{ flight.arriavalAirportName }} ({{
+              flight.arraiavalAirportCode
+            }})
+          </div>
+        </div>
         <p>
-          Seat :<strong>{{ item.allocatedSeat }}</strong>
+          <span class="price">{{ flight.basePrice | currency : "₹" }} </span>
+          <span class="spacer">---||---</span>
+          <span class="flightseatscount">
+            Seats:{{ flight.totalNoofseats }}</span
+          >
         </p>
       </div>
-    </div>
+      <div class="flight-schedule">
+        <p>
+          <span class="scheduleitem">
+            <span class="schedulelabel">
+              From: <strong>{{ flight.departureCity }}</strong>
+            </span>
+            <span class="scheduledate">
+              {{ flight.departureDate | date : "yyyy-MM-dd" }}
+            </span>
+            <span class="scheduletime">
+              {{ flight.departureTime | date : "HH:mm" }}
+            </span>
+          </span>
+        </p>
+        <p>
+          <span class="scheduleitem">
+            <span class="schedulelabel">
+              To: <strong>{{ flight.arrivalCity }}</strong>
+            </span>
+            <span class="scheduledate">
+              {{ flight.arrivalDate | date : "yyyy-MM-dd" }}
+            </span>
+            <span class="scheduletime">
+              {{ flight.arrivalTime | date : "HH:mm" }}
+            </span>
+          </span>
+        </p>
+      </div>
+    </mat-card>
   </div>
 </div>
-
-<mat-card class="flight-card" *ngIf="displayflightdetail">
-  <div class="flight-header">
-    <div class="flight-details">
-      <div class="flight-name">
-        {{ flight.flight_Name }} {{ flight.flight_code }}
-      </div>
-      <div class="airport-details">
-        {{ flight.departureAirportName }} ({{ flight.departureAirportCode }}) -
-        {{ flight.arriavalAirportName }} ({{ flight.arraiavalAirportCode }})
-      </div>
-      <div class="price">{{ flight.basePrice | currency : "₹" }}</div>
-    </div>
-    <div class="flightseatscount">Seats:{{ flight.totalNoofseats }}</div>
-  </div>
-  <div class="flight-schedule">
-    <div class="scheduleitem">
-      <div class="schedulelabel">
-        From: <strong>{{ flight.departureCity }}</strong>
-      </div>
-      <div class="scheduledate">
-        {{ flight.departureDate | date : "yyyy-MM-dd" }}
-      </div>
-      <div class="scheduletime">
-        {{ flight.departureTime | date : "HH:mm" }}
-      </div>
-    </div>
-    <div class="spacer">
-      <mat-icon class="flighticon">flight </mat-icon>
-    </div>
-    <div class="scheduleitem">
-      <div class="schedulelabel">
-        To: <strong>{{ flight.arrivalCity }}</strong>
-      </div>
-      <div class="scheduledate">
-        {{ flight.arrivalDate | date : "yyyy-MM-dd" }}
-      </div>
-      <div class="scheduletime">
-        {{ flight.arrivalTime | date : "HH:mm" }}
-      </div>
-    </div>
-  </div>
-</mat-card>
 <!-- booking
 : 
 null
